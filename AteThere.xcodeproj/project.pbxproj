@@ -12,6 +12,8 @@
 		DD17C8421F7F69D900521FD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD17C8401F7F69D900521FD1 /* Main.storyboard */; };
 		DD17C8441F7F69D900521FD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD17C8431F7F69D900521FD1 /* Assets.xcassets */; };
 		DD17C8471F7F69D900521FD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD17C8451F7F69D900521FD1 /* LaunchScreen.storyboard */; };
+		DDBED9481F81A96400D7CB4C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBED9471F81A96400D7CB4C /* Endpoint.swift */; };
+		DDBED94A1F81B2A900D7CB4C /* FoursqureAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBED9491F81B2A900D7CB4C /* FoursqureAPIKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		DD17C8431F7F69D900521FD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD17C8461F7F69D900521FD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD17C8481F7F69D900521FD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDBED9471F81A96400D7CB4C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		DDBED9491F81B2A900D7CB4C /* FoursqureAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursqureAPIKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		DD17C83B1F7F69D900521FD1 /* AteThere */ = {
 			isa = PBXGroup;
 			children = (
+				DDBED9461F81A8F800D7CB4C /* Networking */,
 				DD17C83C1F7F69D900521FD1 /* AppDelegate.swift */,
 				DD17C83E1F7F69D900521FD1 /* ViewController.swift */,
 				DD17C8401F7F69D900521FD1 /* Main.storyboard */,
@@ -62,6 +67,15 @@
 				DD17C8481F7F69D900521FD1 /* Info.plist */,
 			);
 			path = AteThere;
+			sourceTree = "<group>";
+		};
+		DDBED9461F81A8F800D7CB4C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				DDBED9491F81B2A900D7CB4C /* FoursqureAPIKey.swift */,
+				DDBED9471F81A96400D7CB4C /* Endpoint.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +151,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD17C83F1F7F69D900521FD1 /* ViewController.swift in Sources */,
+				DDBED9481F81A96400D7CB4C /* Endpoint.swift in Sources */,
 				DD17C83D1F7F69D900521FD1 /* AppDelegate.swift in Sources */,
+				DDBED94A1F81B2A900D7CB4C /* FoursqureAPIKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7C7E58NWQY;
 				INFOPLIST_FILE = AteThere/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RhL.AteThere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7C7E58NWQY;
 				INFOPLIST_FILE = AteThere/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.RhL.AteThere;
 				PRODUCT_NAME = "$(TARGET_NAME)";
