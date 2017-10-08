@@ -29,35 +29,53 @@ extension Endpoint {
 }
 
 enum Foursquare {
+    enum Constants: String {
+        case base
+        case version
+        case venues
+        case search
+        case query
+        case client
+        case secret
+        case intent
+        case radius
+        case location
+        case versionParameter
+        case versionDate
+        case mode
+        case modeType
+        
+        var description: String {
+            switch self {
+            case .base: return "https://api.foursquare.com"
+            case .version: return "/v2"
+            case .venues: return "/venues"
+            case .search: return "/search"
+            case .query: return "query"
+            case .client: return "client_id"
+            case .secret: return "client_secret"
+            case .intent: return "intent"
+            case .radius: return "radius"
+            case .location: return "ll"
+            case .versionParameter: return "v"
+            case .versionDate: return "20170921"
+            case .mode: return "mode"
+            case .modeType: return "foursquare"
+            }
+        }
+    }
+    
     case search(term: String)
 }
 
 extension Foursquare: Endpoint {
-    
-    enum Constants: String {
-        case base = "https://api.foursqure.com"
-        case version = "/v2"
-        case venues = "/venues"
-        case search = "/search"
-        case query = "query"
-        case client = "client"
-        case secret = "client_secret"
-        case intent = "intent"
-        case radius = "radius"
-        case location = "ll"
-        case versionParameter = "v"
-        case versionDate = "20170921"
-        case mode = "mode"
-        case modeType = "foursqure"
-    }
-    
     var base: String {
-        return Constants.base.rawValue
+        return Constants.base.description
     }
     
     var path: String {
         switch self {
-        case .search: return Constants.version.rawValue + Constants.venues.rawValue + Constants.search.rawValue
+        case .search: return Constants.version.description + Constants.venues.description + Constants.search.description
         }
     }
     
@@ -65,15 +83,13 @@ extension Foursquare: Endpoint {
         switch self {
         case .search(let term):
             return [
-                URLQueryItem(name: Constants.client.rawValue, value: FoursquareAPIKey.clientID),
-                URLQueryItem(name: Constants.secret.rawValue, value: FoursquareAPIKey.clientSecret),
-                URLQueryItem(name: Constants.query.rawValue, value: term),
-                URLQueryItem(name: Constants.versionParameter.rawValue, value: Constants.versionDate.rawValue),
-                URLQueryItem(name: Constants.mode.rawValue, value: Constants.modeType.rawValue)
+                URLQueryItem(name: Constants.client.description, value: FoursquareAPIKey.clientID),
+                URLQueryItem(name: Constants.secret.description, value: FoursquareAPIKey.clientSecret),
+                URLQueryItem(name: Constants.location.description, value: "33.881682,-118.117012"), // Remove hardcoded location
+                URLQueryItem(name: Constants.query.description, value: term),
+                URLQueryItem(name: Constants.versionParameter.description, value: Constants.versionDate.description),
+                URLQueryItem(name: Constants.mode.description, value: Constants.modeType.description)
             ]
         }
     }
 }
-
-
-
