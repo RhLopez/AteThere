@@ -14,7 +14,7 @@ class SearchController: UITableViewController {
     // MARK: - Properties
     let searchController = UISearchController(searchResultsController: nil)
     let client = FoursquareAPIClient()
-    let dataSource = SearchContrllerDataSource(venues: [])
+    let dataSource = SearchControllerDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
