@@ -23,19 +23,22 @@ class FoursquareAPIClient: APIClient {
         let endpoint = Foursquare.search(term: term)
         
         let task = jsonTask(with: endpoint.request) { (json, error) in
-            guard let json = json else {
-                completion(.failure(.invalidData))
-                return
-            }
             
-            guard let responseDict = json["response"] as? [String: AnyObject],
-                let venuesDict = responseDict["venues"] as? [[String: AnyObject]] else {
-                completion(.failure(.jsonParsingFailure))
-                return
+            DispatchQueue.main.async {
+                guard let json = json else {
+                    completion(.failure(.invalidData))
+                    return
+                }
+                
+                guard let responseDict = json["response"] as? [String: AnyObject],
+                    let venuesDict = responseDict["venues"] as? [[String: AnyObject]] else {
+                        completion(.failure(.jsonParsingFailure))
+                        return
+                }
+                
+                let venues = venuesDict.flatMap { Venue(json: $0) }
+                completion(.success(venues))
             }
-            
-            let venues = venuesDict.flatMap { Venue(json: $0) }
-            completion(.success(venues))
         }
         task.resume()
     }
