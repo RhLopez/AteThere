@@ -9,16 +9,20 @@
 import Foundation
 import UIKit
 
-class SearchContrllerDataSource: NSObject {
+class SearchControllerDataSource: NSObject {
     private var venues: [Venue]
     
     init(venues: [Venue]) {
         self.venues = venues
     }
+    
+    override convenience init() {
+        self.init(venues: [])
+    }
 }
 
 // MARK: - UITableViewDataSource
-extension SearchContrllerDataSource: UITableViewDataSource {
+extension SearchControllerDataSource: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -41,7 +45,7 @@ extension SearchContrllerDataSource: UITableViewDataSource {
     }
 }
 
-extension SearchContrllerDataSource {
+extension SearchControllerDataSource {
     func update(withVenues venues: [Venue]) {
         self.venues = venues
     }
