@@ -14,10 +14,12 @@ class SearchController: UITableViewController {
     // MARK: - Properties
     let searchController = UISearchController(searchResultsController: nil)
     let client = FoursquareAPIClient()
+    let dataSource = SearchContrllerDataSource(venues: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchController()
+        tableView.dataSource = dataSource
     }
     
     func setupSearchController() {
@@ -33,12 +35,15 @@ extension SearchController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchTerm = searchController.searchBar.text!
         
-        client.search(withTerm: searchTerm) { (result) in
-            switch result {
-            case .success(let venues):
-                print(venues)
-            case .failure(let error):
-                print("error: \(error)")
+        if !searchTerm.isEmpty {
+            client.search(withTerm: searchTerm) { (result) in
+                switch result {
+                case .success(let venues):
+                    self.dataSource.update(withVenues: venues)
+                    self.tableView.reloadData()
+                case .failure(let error):
+                    print("error: \(error)")
+                }
             }
         }
     }
