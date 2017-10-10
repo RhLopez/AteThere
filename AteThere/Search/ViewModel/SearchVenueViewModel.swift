@@ -12,10 +12,21 @@ struct SearchVenueViewModel {
     let name: String
     let id: String
     let address: String
+    let phoneNumber: String
+    let url: String
     
     init(withVenue venue: Venue) {
         self.name = venue.name
         self.id = venue.id
-        self.address = "\(venue.address), \(venue.city), \(venue.state) \(venue.zipCode)"
+        
+        if let location = venue.location {
+            self.address = "\(location.address) \(location.city), \(location.state) \(location.zipCode)"
+        } else {
+            self.address = "Address not available"
+        }
+        
+        self.phoneNumber = venue.telphone?.formattedPhone ?? "Telephone not available"
+        
+        self.url = venue.url ?? "Website not available"
     }
 }
