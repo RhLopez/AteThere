@@ -42,4 +42,32 @@ class FoursquareAPIClient: APIClient {
         }
         task.resume()
     }
+    
+    func lookUp(forId id: String, completion: @escaping (Result<Venue, APIError>) -> Void) {
+        let endpoint = Foursquare.lookUp(id: id)
+        print(endpoint.request)
+        let task = jsonTask(with: endpoint.request) { (json, error) in
+            
+            DispatchQueue.main.async {
+                guard let json = json else {
+                    completion(.failure(.invalidData))
+                    return
+                }
+                
+                guard let responseDict = json["response"] as? [String: AnyObject],
+                    let venueDict = responseDict["venue"] as? [String: AnyObject] else {
+                        completion(.failure(.jsonConversionFailure))
+                        return
+                }
+                
+                guard let venue = Venue(json: venueDict) else {
+                    completion(.failure(.jsonConversionFailure))
+                    return
+                }
+                
+                completion(.success(venue))
+            }
+        }
+        task.resume()
+    }
 }
