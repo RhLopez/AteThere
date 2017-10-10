@@ -11,27 +11,33 @@ import Foundation
 struct Venue {
     let name: String
     let id: String
-    let address: String
-    let city: String
-    let state: String
-    let zipCode: String
+    let location: Location?
+    let url: String?
+    let telphone: Telephone?
     
     init?(json: [String: AnyObject]) {        
         guard let name = json[Keys.name.description] as? String,
-            let id = json[Keys.id.description] as? String,
-            let locationDict = json[Keys.location.description] as? [String: AnyObject],
-            let address = locationDict[Keys.address.description] as? String,
-            let city = locationDict[Keys.city.description] as? String,
-            let state = locationDict[Keys.state.description] as? String,
-            let zipCode = locationDict[Keys.zipCode.description] as? String else {
+            let id = json[Keys.id.description] as? String else {
                 return nil
         }
+        
         self.name = name
         self.id = id
-        self.address = address
-        self.city = city
-        self.state = state
-        self.zipCode = zipCode
+        
+        if let contactDict = json[Keys.contact.description] as? [String: AnyObject] {
+            self.telphone = Telephone(json: contactDict)
+        } else {
+            self.telphone = nil
+        }
+        
+        if let locationDict = json[Keys.location.description] as? [String: AnyObject] {
+            self.location = Location(json: locationDict)
+        } else {
+            self.location = nil
+        }
+        
+        url = json[Keys.url.description] as? String ?? nil
+        
     }
 }
 
@@ -39,21 +45,17 @@ extension Venue {
     enum Keys: String {
         case name
         case id
+        case contact
         case location
-        case address
-        case city
-        case state
-        case zipCode
+        case url
         
         var description: String {
             switch self {
             case .name: return "name"
             case .id: return "id"
+            case .contact: return "contact"
             case .location: return "location"
-            case .address: return "address"
-            case .city: return "city"
-            case .state: return "state"
-            case .zipCode: return "postalCode"
+            case .url: return "url"
             }
         }
     }
