@@ -24,13 +24,13 @@ class SearchController: UITableViewController {
     
     func setupSearchController() {
         self.navigationItem.titleView = searchController.searchBar
-        
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchResultsUpdater = self
     }
 }
 
+// MARK: - UISearchResultsUpdating
 extension SearchController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchTerm = searchController.searchBar.text!
@@ -46,5 +46,15 @@ extension SearchController: UISearchResultsUpdating {
                 }
             }
         }
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension SearchController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let venue = dataSource.getVenue(forIndexPath: indexPath)
+        let detailViewController = storyboard?.instantiateViewController(withIdentifier: "SearchDetailController") as! SearchDetailController
+        detailViewController.viewModel = SearchVenueViewModel(withVenue: venue)
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
