@@ -29,42 +29,6 @@ extension Endpoint {
 }
 
 enum Foursquare {
-    enum Constants: String {
-        case base
-        case version
-        case venues
-        case search
-        case query
-        case client
-        case secret
-        case intent
-        case radius
-        case location
-        case versionParameter
-        case versionDate
-        case mode
-        case modeType
-        
-        var description: String {
-            switch self {
-            case .base: return "https://api.foursquare.com"
-            case .version: return "/v2"
-            case .venues: return "/venues"
-            case .search: return "/search"
-            case .query: return "query"
-            case .client: return "client_id"
-            case .secret: return "client_secret"
-            case .intent: return "intent"
-            case .radius: return "radius"
-            case .location: return "ll"
-            case .versionParameter: return "v"
-            case .versionDate: return "20170921"
-            case .mode: return "mode"
-            case .modeType: return "foursquare"
-            }
-        }
-    }
-    
     case search(term: String)
     case lookUp(id: String)
 }
@@ -99,6 +63,44 @@ extension Foursquare: Endpoint {
                 URLQueryItem(name: Constants.versionParameter.description, value: Constants.versionDate.description),
                 URLQueryItem(name: Constants.mode.description, value: Constants.modeType.description)
             ]
+        }
+    }
+}
+
+extension Foursquare {
+    enum Constants: String {
+        case base
+        case version
+        case venues
+        case search
+        case query
+        case client
+        case secret
+        case intent
+        case radius
+        case location
+        case versionParameter
+        case versionDate
+        case mode
+        case modeType
+        
+        var description: String {
+            switch self {
+            case .base: return "https://api.foursquare.com"
+            case .version: return "/v2"
+            case .venues: return "/venues"
+            case .search: return "/search"
+            case .query: return "query"
+            case .client: return "client_id"
+            case .secret: return "client_secret"
+            case .intent: return "intent"
+            case .radius: return "radius"
+            case .location: return "ll"
+            case .versionParameter: return "v"
+            case .versionDate: return "20170921"
+            case .mode: return "mode"
+            case .modeType: return "foursquare"
+            }
         }
     }
 }
