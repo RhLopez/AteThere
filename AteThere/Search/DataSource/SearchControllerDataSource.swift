@@ -49,4 +49,8 @@ extension SearchControllerDataSource {
     func update(withVenues venues: [Venue]) {
         self.venues = venues
     }
+    
+    func getVenue(forIndexPath indexPath: IndexPath) -> Venue {
+        return venues[indexPath.row]
+    }
 }
