@@ -66,6 +66,7 @@ enum Foursquare {
     }
     
     case search(term: String)
+    case lookUp(id: String)
 }
 
 extension Foursquare: Endpoint {
@@ -76,6 +77,7 @@ extension Foursquare: Endpoint {
     var path: String {
         switch self {
         case .search: return Constants.version.description + Constants.venues.description + Constants.search.description
+        case .lookUp(let id): return Constants.version.description + Constants.venues.description + "/\(id)"
         }
     }
     
@@ -87,6 +89,13 @@ extension Foursquare: Endpoint {
                 URLQueryItem(name: Constants.secret.description, value: FoursquareAPIKey.clientSecret),
                 URLQueryItem(name: Constants.location.description, value: "33.881682,-118.117012"), // Remove hardcoded location
                 URLQueryItem(name: Constants.query.description, value: term),
+                URLQueryItem(name: Constants.versionParameter.description, value: Constants.versionDate.description),
+                URLQueryItem(name: Constants.mode.description, value: Constants.modeType.description)
+            ]
+        case .lookUp:
+            return [
+                URLQueryItem(name: Constants.client.description, value: FoursquareAPIKey.clientID),
+                URLQueryItem(name: Constants.secret.description, value: FoursquareAPIKey.clientSecret),
                 URLQueryItem(name: Constants.versionParameter.description, value: Constants.versionDate.description),
                 URLQueryItem(name: Constants.mode.description, value: Constants.modeType.description)
             ]
