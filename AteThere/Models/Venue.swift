@@ -16,33 +16,33 @@ struct Venue {
     let telphone: Telephone?
     
     init?(json: [String: AnyObject]) {        
-        guard let name = json[Keys.name.description] as? String,
-            let id = json[Keys.id.description] as? String else {
+        guard let name = json[JSONKeys.name.description] as? String,
+            let id = json[JSONKeys.id.description] as? String else {
                 return nil
         }
         
         self.name = name
         self.id = id
         
-        if let contactDict = json[Keys.contact.description] as? [String: AnyObject] {
+        if let contactDict = json[JSONKeys.contact.description] as? [String: AnyObject] {
             self.telphone = Telephone(json: contactDict)
         } else {
             self.telphone = nil
         }
         
-        if let locationDict = json[Keys.location.description] as? [String: AnyObject] {
+        if let locationDict = json[JSONKeys.location.description] as? [String: AnyObject] {
             self.location = Location(json: locationDict)
         } else {
             self.location = nil
         }
         
-        url = json[Keys.url.description] as? String ?? nil
+        url = json[JSONKeys.url.description] as? String ?? nil
         
     }
 }
 
 extension Venue {
-    enum Keys: String {
+    enum JSONKeys: String {
         case name
         case id
         case contact

@@ -15,10 +15,10 @@ struct Location {
     let zipCode: String
     
     init?(json: [String: AnyObject]) {
-        guard let address = json[Keys.address.description] as? String,
-            let city = json[Keys.city.description] as? String,
-            let state = json[Keys.state.description] as? String,
-            let zipCode = json[Keys.zipCode.description] as? String else { return nil }
+        guard let address = json[JSONKeys.address.description] as? String,
+            let city = json[JSONKeys.city.description] as? String,
+            let state = json[JSONKeys.state.description] as? String,
+            let zipCode = json[JSONKeys.zipCode.description] as? String else { return nil }
         
         self.address = address
         self.city = city
@@ -28,7 +28,7 @@ struct Location {
 }
 
 extension Location {
-    enum Keys {
+    enum JSONKeys {
         case address
         case city
         case state

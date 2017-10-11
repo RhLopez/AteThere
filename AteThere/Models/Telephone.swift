@@ -12,7 +12,7 @@ struct Telephone {
     let formattedPhone: String
     
     init?(json: [String: AnyObject]) {
-        guard let phoneNumber = json[Keys.formattedPhone.description] as? String else {
+        guard let phoneNumber = json[JSONKeys.formattedPhone.description] as? String else {
             return nil
         }
         
@@ -21,7 +21,7 @@ struct Telephone {
 }
 
 extension Telephone {
-    enum Keys {
+    enum JSONKeys {
         case formattedPhone
         
         var description: String {
