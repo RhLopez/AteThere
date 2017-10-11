@@ -7,25 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD13283E1F8C8C74009CD9BF /* Telephone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD13283D1F8C8C74009CD9BF /* Telephone.swift */; };
 		DD17C83D1F7F69D900521FD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD17C83C1F7F69D900521FD1 /* AppDelegate.swift */; };
-		DD17C83F1F7F69D900521FD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD17C83E1F7F69D900521FD1 /* ViewController.swift */; };
 		DD17C8421F7F69D900521FD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD17C8401F7F69D900521FD1 /* Main.storyboard */; };
 		DD17C8441F7F69D900521FD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD17C8431F7F69D900521FD1 /* Assets.xcassets */; };
 		DD17C8471F7F69D900521FD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD17C8451F7F69D900521FD1 /* LaunchScreen.storyboard */; };
+		DD1B7D131F8DAF65007C8B77 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1B7D121F8DAF65007C8B77 /* APIKey.swift */; };
+		DD26BEEC1F8321E7005E6AB0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD26BEEB1F8321E7005E6AB0 /* APIClient.swift */; };
+		DD75AAE71F85BED200FB432B /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75AAE61F85BED200FB432B /* Venue.swift */; };
+		DD75AAE91F85BFE200FB432B /* FoursquareAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75AAE81F85BFE200FB432B /* FoursquareAPIClient.swift */; };
+		DD75AAEB1F85C4FA00FB432B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75AAEA1F85C4FA00FB432B /* Result.swift */; };
+		DD8793711F83507900995D48 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8793701F83507900995D48 /* APIError.swift */; };
+		DD9CAB781F89F97B00984038 /* SearchControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9CAB771F89F97B00984038 /* SearchControllerDataSource.swift */; };
+		DD9CAB7B1F89FEA400984038 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9CAB7A1F89FEA400984038 /* SearchTableViewCell.swift */; };
 		DDBED9481F81A96400D7CB4C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBED9471F81A96400D7CB4C /* Endpoint.swift */; };
 		DDBED94A1F81B2A900D7CB4C /* FoursqureAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBED9491F81B2A900D7CB4C /* FoursqureAPIKey.swift */; };
+		DDBED94D1F81C3B200D7CB4C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBED94C1F81C3B200D7CB4C /* SearchController.swift */; };
+		DDC785571F8B42B000A0EF0C /* SearchDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC785561F8B42B000A0EF0C /* SearchDetailController.swift */; };
+		DDC7855A1F8B55AA00A0EF0C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC785591F8B55AA00A0EF0C /* Location.swift */; };
+		DDF029691F8A0D5900FE99DE /* SearchVenueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF029681F8A0D5900FE99DE /* SearchVenueViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD13283D1F8C8C74009CD9BF /* Telephone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Telephone.swift; sourceTree = "<group>"; };
 		DD17C8391F7F69D900521FD1 /* AteThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AteThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD17C83C1F7F69D900521FD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DD17C83E1F7F69D900521FD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DD17C8411F7F69D900521FD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD17C8431F7F69D900521FD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD17C8461F7F69D900521FD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD17C8481F7F69D900521FD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD1B7D121F8DAF65007C8B77 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		DD26BEEB1F8321E7005E6AB0 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		DD75AAE61F85BED200FB432B /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		DD75AAE81F85BFE200FB432B /* FoursquareAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPIClient.swift; sourceTree = "<group>"; };
+		DD75AAEA1F85C4FA00FB432B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		DD8793701F83507900995D48 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		DD9CAB771F89F97B00984038 /* SearchControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerDataSource.swift; sourceTree = "<group>"; };
+		DD9CAB7A1F89FEA400984038 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		DDBED9471F81A96400D7CB4C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		DDBED9491F81B2A900D7CB4C /* FoursqureAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursqureAPIKey.swift; sourceTree = "<group>"; };
+		DDBED94C1F81C3B200D7CB4C /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		DDC785561F8B42B000A0EF0C /* SearchDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailController.swift; sourceTree = "<group>"; };
+		DDC785591F8B55AA00A0EF0C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		DDF029681F8A0D5900FE99DE /* SearchVenueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenueViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +82,10 @@
 		DD17C83B1F7F69D900521FD1 /* AteThere */ = {
 			isa = PBXGroup;
 			children = (
+				DD75AAE51F85BEBA00FB432B /* Models */,
+				DDBED94B1F81C14F00D7CB4C /* Search */,
 				DDBED9461F81A8F800D7CB4C /* Networking */,
 				DD17C83C1F7F69D900521FD1 /* AppDelegate.swift */,
-				DD17C83E1F7F69D900521FD1 /* ViewController.swift */,
 				DD17C8401F7F69D900521FD1 /* Main.storyboard */,
 				DD17C8431F7F69D900521FD1 /* Assets.xcassets */,
 				DD17C8451F7F69D900521FD1 /* LaunchScreen.storyboard */,
@@ -69,13 +94,72 @@
 			path = AteThere;
 			sourceTree = "<group>";
 		};
+		DD75AAE51F85BEBA00FB432B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DD75AAE61F85BED200FB432B /* Venue.swift */,
+				DDC785591F8B55AA00A0EF0C /* Location.swift */,
+				DD13283D1F8C8C74009CD9BF /* Telephone.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DD9CAB791F89FE6400984038 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDBED94C1F81C3B200D7CB4C /* SearchController.swift */,
+				DDC785561F8B42B000A0EF0C /* SearchDetailController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD9CAB7C1F89FEAA00984038 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD9CAB7A1F89FEA400984038 /* SearchTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DDBED9461F81A8F800D7CB4C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				DD1B7D121F8DAF65007C8B77 /* APIKey.swift */,
 				DDBED9491F81B2A900D7CB4C /* FoursqureAPIKey.swift */,
 				DDBED9471F81A96400D7CB4C /* Endpoint.swift */,
+				DD26BEEB1F8321E7005E6AB0 /* APIClient.swift */,
+				DD75AAE81F85BFE200FB432B /* FoursquareAPIClient.swift */,
+				DD8793701F83507900995D48 /* APIError.swift */,
+				DD75AAEA1F85C4FA00FB432B /* Result.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		DDBED94B1F81C14F00D7CB4C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DDC785581F8B497200A0EF0C /* DataSource */,
+				DDF029651F8A0D1D00FE99DE /* ViewModel */,
+				DD9CAB7C1F89FEAA00984038 /* View */,
+				DD9CAB791F89FE6400984038 /* Controller */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		DDC785581F8B497200A0EF0C /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				DD9CAB771F89F97B00984038 /* SearchControllerDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		DDF029651F8A0D1D00FE99DE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DDF029681F8A0D5900FE99DE /* SearchVenueViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,10 +234,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD17C83F1F7F69D900521FD1 /* ViewController.swift in Sources */,
+				DDC785571F8B42B000A0EF0C /* SearchDetailController.swift in Sources */,
+				DD75AAEB1F85C4FA00FB432B /* Result.swift in Sources */,
+				DDBED94D1F81C3B200D7CB4C /* SearchController.swift in Sources */,
 				DDBED9481F81A96400D7CB4C /* Endpoint.swift in Sources */,
+				DD75AAE91F85BFE200FB432B /* FoursquareAPIClient.swift in Sources */,
+				DD13283E1F8C8C74009CD9BF /* Telephone.swift in Sources */,
+				DD9CAB7B1F89FEA400984038 /* SearchTableViewCell.swift in Sources */,
+				DDC7855A1F8B55AA00A0EF0C /* Location.swift in Sources */,
+				DD9CAB781F89F97B00984038 /* SearchControllerDataSource.swift in Sources */,
 				DD17C83D1F7F69D900521FD1 /* AppDelegate.swift in Sources */,
+				DD1B7D131F8DAF65007C8B77 /* APIKey.swift in Sources */,
+				DD75AAE71F85BED200FB432B /* Venue.swift in Sources */,
+				DD26BEEC1F8321E7005E6AB0 /* APIClient.swift in Sources */,
 				DDBED94A1F81B2A900D7CB4C /* FoursqureAPIKey.swift in Sources */,
+				DDF029691F8A0D5900FE99DE /* SearchVenueViewModel.swift in Sources */,
+				DD8793711F83507900995D48 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
