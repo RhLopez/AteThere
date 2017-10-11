@@ -11,6 +11,4 @@ import Foundation
 protocol APIKey {
     var clientID: String { get set }
     var clientSecret: String { get set }
-    
-    init(clientID: String, clientSecret: String)
 }

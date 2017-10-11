@@ -16,7 +16,9 @@ class SearchController: UITableViewController {
     let dataSource = SearchControllerDataSource()
     
     lazy var apiKey: APIKey = {
-       return FoursquareAPIKey(clientID: "YOUR_CLIENT_ID_HERE", clientSecret: "YOUR_CLIENT_SECRET_HERE")
+        // Add clientID and clientSecret to FoursquareAPIKey.swift
+        // or replace with a different type
+       return FoursquareAPIKey()
     }()
     
     lazy var client: FoursquareAPIClient = {

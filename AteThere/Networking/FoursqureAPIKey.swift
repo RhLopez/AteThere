@@ -9,12 +9,7 @@
 import Foundation
 
 struct FoursquareAPIKey: APIKey {
-    var clientID: String
-    var clientSecret: String
-    
-    init(clientID: String, clientSecret: String) {
-        self.clientID = clientID
-        self.clientSecret = clientSecret
-    }
+    var clientID = "YOUR_CLIENT_ID"
+    var clientSecret = "YOUR_CLIENT_SECRET"
 }
 
