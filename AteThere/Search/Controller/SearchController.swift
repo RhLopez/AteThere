@@ -13,8 +13,15 @@ class SearchController: UITableViewController {
     
     // MARK: - Properties
     let searchController = UISearchController(searchResultsController: nil)
-    let client = FoursquareAPIClient()
     let dataSource = SearchControllerDataSource()
+    
+    lazy var apiKey: APIKey = {
+       return FoursquareAPIKey(clientID: "YOUR_CLIENT_ID_HERE", clientSecret: "YOUR_CLIENT_SECRET_HERE")
+    }()
+    
+    lazy var client: FoursquareAPIClient = {
+       return FoursquareAPIClient(apiKey: self.apiKey)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
