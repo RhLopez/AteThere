@@ -15,6 +15,7 @@ enum APIError: Error {
     case responseUnsuccessful
     case jsonParsingFailure
     case requestError(message: String)
+    case invalidURL
     var localizedDescription: String {
         switch self {
         case .requestFailed: return "Request Failed"
@@ -23,6 +24,7 @@ enum APIError: Error {
         case .jsonParsingFailure: return "JSON Parsing Failure"
         case .jsonConversionFailure: return "JSON Conversion Failure"
         case .requestError(let message): return "The request returned an error: \(message)"
+        case .invalidURL: return "Invalid URL"
         }
     }
 }

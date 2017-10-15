@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class FoursquareAPIClient: APIClient {
     var apiKey: APIKey
@@ -45,9 +46,9 @@ class FoursquareAPIClient: APIClient {
         task.resume()
     }
     
-    func lookUp(forId id: String, completion: @escaping (Result<Venue, APIError>) -> Void) {
-        let endpoint = Foursquare.lookUp(id: id, key: apiKey)
-        print(endpoint.request)
+    func updateVenueDetails(_ venue: Venue, completion: @escaping (Result<Venue, APIError>) -> Void) {
+        let endpoint = Foursquare.lookUp(id: venue.id, key: apiKey)
+
         let task = jsonTask(with: endpoint.request) { (json, error) in
             
             DispatchQueue.main.async {
@@ -62,21 +63,88 @@ class FoursquareAPIClient: APIClient {
                         return
                 }
                 
-                guard let venue = Venue(json: venueDict) else {
-                    completion(.failure(.jsonConversionFailure))
-                    return
-                }
+                venue.updateWithPhotos(json: venueDict)
                 
                 completion(.success(venue))
             }
         }
         task.resume()
     }
+    
+    func bestPhoto(_ venue: Venue, completion: @escaping(Result<UIImage, APIError>) -> Void) {
+        guard let urlString = venue.bestPhoto?.imageUrl else {
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        getPhotoData(urlString) { (data, error) in
+            DispatchQueue.main.async {
+                guard let data = data else {
+                    completion(.failure(.invalidData))
+                    return
+                }
+                
+                if let image = UIImage(data: data) {
+                    completion(.success(image))
+                } else {
+                    completion(.failure(.invalidData))
+                }
+            }
+        }
+    }
+    
+    func getPhotos(forVenue venue: Venue, completion: @escaping(Result<[VenuePhoto], APIError>) -> Void) {
+        let endpoint = Foursquare.photos(id: venue.id, key: apiKey)
+        
+        let task = jsonTask(with: endpoint.request) { (json, error) in
+            DispatchQueue.main.async {
+                guard let json = json else {
+                    completion(.failure(.invalidData))
+                    return
+                }
+                
+                guard let responseDict = json["response"] as? [String: AnyObject],
+                    let photosDict = responseDict["photos"] as? [String: AnyObject],
+                    let items = photosDict["items"] as? [[String: AnyObject]] else {
+                        completion(.failure(.jsonConversionFailure))
+                        return
+                }
+                
+                let venuePhotos = items.flatMap { VenuePhoto(json: $0) }
+                completion(.success(venuePhotos))
+            }
+        }
+        task.resume()
+    }
+    
+    func getPhoto(forVenue venue: Venue, atIndexPath indexPath: IndexPath, completion: @escaping (Result<Venue, APIError>) -> Void) {
+        guard let urlString = venue.photos[indexPath.row].imageUrl else {
+            completion(.failure(.invalidURL))
+            return
+        }
+        
+        getPhotoData(urlString) { (data, error) in
+            DispatchQueue.main.async {
+                guard let data = data else {
+                    completion(.failure(.invalidData))
+                    return
+                }
+                
+                if let image = UIImage(data: data) {
+                    venue.photos[indexPath.row].image = image
+                    completion(.success(venue))
+                } else {
+                    completion(.failure(.invalidData))
+                }
+            }
+        }
+    }
 }
 
 enum Foursquare {
     case search(term: String, key: APIKey)
     case lookUp(id: String, key: APIKey)
+    case photos(id: String, key: APIKey)
 }
 
 extension Foursquare: Endpoint {
@@ -88,6 +156,7 @@ extension Foursquare: Endpoint {
         switch self {
         case .search: return Constants.version + Constants.venues + Constants.search
         case .lookUp(let id, _): return Constants.version + Constants.venues + "/\(id)"
+        case .photos(let id, _): return Constants.version + Constants.venues + "/\(id)" + Constants.photos
         }
     }
     
@@ -97,12 +166,20 @@ extension Foursquare: Endpoint {
             return [
                 URLQueryItem(name: Constants.client, value: key.clientID),
                 URLQueryItem(name: Constants.secret, value: key.clientSecret),
-                URLQueryItem(name: Constants.location, value: "33.881682,-118.117012"), // Remove hardcoded location
+                URLQueryItem(name: Constants.location, value: "33.881682,-118.117012"),// Remove hardcoded location
+                URLQueryItem(name: Constants.category, value: Constants.foodCategory),
                 URLQueryItem(name: Constants.query, value: term),
                 URLQueryItem(name: Constants.versionParameter, value: Constants.versionDate),
                 URLQueryItem(name: Constants.mode, value: Constants.modeType)
             ]
         case .lookUp(_, let key):
+            return [
+                URLQueryItem(name: Constants.client, value: key.clientID),
+                URLQueryItem(name: Constants.secret, value: key.clientSecret),
+                URLQueryItem(name: Constants.versionParameter, value: Constants.versionDate),
+                URLQueryItem(name: Constants.mode, value: Constants.modeType)
+            ]
+        case .photos(_, let key):
             return [
                 URLQueryItem(name: Constants.client, value: key.clientID),
                 URLQueryItem(name: Constants.secret, value: key.clientSecret),
@@ -129,6 +206,9 @@ extension Foursquare {
         static let versionDate = "20170921"
         static let mode = "mode"
         static let modeType = "foursquare"
+        static let photos = "/photos"
+        static let category = "categoryId"
+        static let foodCategory = "4d4b7105d754a06374d81259"
     }
 }
 
