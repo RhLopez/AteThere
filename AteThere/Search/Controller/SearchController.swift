@@ -31,6 +31,11 @@ class SearchController: UITableViewController {
         tableView.dataSource = dataSource
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     func setupSearchController() {
         self.navigationItem.titleView = searchController.searchBar
         searchController.dimsBackgroundDuringPresentation = false
@@ -54,6 +59,9 @@ extension SearchController: UISearchResultsUpdating {
                     print("error: \(error)")
                 }
             }
+        } else {
+            self.dataSource.update(withVenues: [])
+            self.tableView.reloadData()
         }
     }
 }
@@ -63,7 +71,9 @@ extension SearchController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let venue = dataSource.getVenue(forIndexPath: indexPath)
         let detailViewController = storyboard?.instantiateViewController(withIdentifier: "SearchDetailController") as! SearchDetailController
-        detailViewController.viewModel = SearchVenueViewModel(withVenue: venue)
+        detailViewController.venue = venue
+        detailViewController.client = client
         navigationController?.pushViewController(detailViewController, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
