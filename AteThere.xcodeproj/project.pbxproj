@@ -14,17 +14,23 @@
 		DD17C8471F7F69D900521FD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD17C8451F7F69D900521FD1 /* LaunchScreen.storyboard */; };
 		DD1B7D131F8DAF65007C8B77 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1B7D121F8DAF65007C8B77 /* APIKey.swift */; };
 		DD26BEEC1F8321E7005E6AB0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD26BEEB1F8321E7005E6AB0 /* APIClient.swift */; };
+		DD4AD60D1F8F4E6300077FA7 /* VenueBestPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AD60C1F8F4E6300077FA7 /* VenueBestPhoto.swift */; };
+		DD601A031F8F4A31001341E2 /* VenueCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD601A021F8F4A31001341E2 /* VenueCategory.swift */; };
 		DD75AAE71F85BED200FB432B /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75AAE61F85BED200FB432B /* Venue.swift */; };
 		DD75AAE91F85BFE200FB432B /* FoursquareAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75AAE81F85BFE200FB432B /* FoursquareAPIClient.swift */; };
 		DD75AAEB1F85C4FA00FB432B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75AAEA1F85C4FA00FB432B /* Result.swift */; };
 		DD8793711F83507900995D48 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8793701F83507900995D48 /* APIError.swift */; };
 		DD9CAB781F89F97B00984038 /* SearchControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9CAB771F89F97B00984038 /* SearchControllerDataSource.swift */; };
 		DD9CAB7B1F89FEA400984038 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9CAB7A1F89FEA400984038 /* SearchTableViewCell.swift */; };
+		DDA2451A1F91D55C00ABBFA8 /* VenuePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA245191F91D55C00ABBFA8 /* VenuePhoto.swift */; };
+		DDA2451C1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2451B1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift */; };
 		DDBED9481F81A96400D7CB4C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBED9471F81A96400D7CB4C /* Endpoint.swift */; };
 		DDBED94A1F81B2A900D7CB4C /* FoursqureAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBED9491F81B2A900D7CB4C /* FoursqureAPIKey.swift */; };
 		DDBED94D1F81C3B200D7CB4C /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBED94C1F81C3B200D7CB4C /* SearchController.swift */; };
 		DDC785571F8B42B000A0EF0C /* SearchDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC785561F8B42B000A0EF0C /* SearchDetailController.swift */; };
 		DDC7855A1F8B55AA00A0EF0C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC785591F8B55AA00A0EF0C /* Location.swift */; };
+		DDC8DEBF1F91B57C00F61861 /* SearchDetailCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8DEBE1F91B57C00F61861 /* SearchDetailCollectionViewDataSource.swift */; };
+		DDD1FFAF1F92C96400FE4970 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD1FFAE1F92C96400FE4970 /* CustomUIButton.swift */; };
 		DDF029691F8A0D5900FE99DE /* SearchVenueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF029681F8A0D5900FE99DE /* SearchVenueViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,17 +44,23 @@
 		DD17C8481F7F69D900521FD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD1B7D121F8DAF65007C8B77 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		DD26BEEB1F8321E7005E6AB0 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		DD4AD60C1F8F4E6300077FA7 /* VenueBestPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueBestPhoto.swift; sourceTree = "<group>"; };
+		DD601A021F8F4A31001341E2 /* VenueCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueCategory.swift; sourceTree = "<group>"; };
 		DD75AAE61F85BED200FB432B /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		DD75AAE81F85BFE200FB432B /* FoursquareAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPIClient.swift; sourceTree = "<group>"; };
 		DD75AAEA1F85C4FA00FB432B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		DD8793701F83507900995D48 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		DD9CAB771F89F97B00984038 /* SearchControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerDataSource.swift; sourceTree = "<group>"; };
 		DD9CAB7A1F89FEA400984038 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		DDA245191F91D55C00ABBFA8 /* VenuePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuePhoto.swift; sourceTree = "<group>"; };
+		DDA2451B1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDBED9471F81A96400D7CB4C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		DDBED9491F81B2A900D7CB4C /* FoursqureAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursqureAPIKey.swift; sourceTree = "<group>"; };
 		DDBED94C1F81C3B200D7CB4C /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		DDC785561F8B42B000A0EF0C /* SearchDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailController.swift; sourceTree = "<group>"; };
 		DDC785591F8B55AA00A0EF0C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		DDC8DEBE1F91B57C00F61861 /* SearchDetailCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		DDD1FFAE1F92C96400FE4970 /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
 		DDF029681F8A0D5900FE99DE /* SearchVenueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenueViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +94,7 @@
 		DD17C83B1F7F69D900521FD1 /* AteThere */ = {
 			isa = PBXGroup;
 			children = (
+				DDD1FFAD1F92C90B00FE4970 /* Subclasses */,
 				DD75AAE51F85BEBA00FB432B /* Models */,
 				DDBED94B1F81C14F00D7CB4C /* Search */,
 				DDBED9461F81A8F800D7CB4C /* Networking */,
@@ -100,6 +113,9 @@
 				DD75AAE61F85BED200FB432B /* Venue.swift */,
 				DDC785591F8B55AA00A0EF0C /* Location.swift */,
 				DD13283D1F8C8C74009CD9BF /* Telephone.swift */,
+				DD601A021F8F4A31001341E2 /* VenueCategory.swift */,
+				DD4AD60C1F8F4E6300077FA7 /* VenueBestPhoto.swift */,
+				DDA245191F91D55C00ABBFA8 /* VenuePhoto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -117,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				DD9CAB7A1F89FEA400984038 /* SearchTableViewCell.swift */,
+				DDA2451B1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -150,8 +167,17 @@
 			isa = PBXGroup;
 			children = (
 				DD9CAB771F89F97B00984038 /* SearchControllerDataSource.swift */,
+				DDC8DEBE1F91B57C00F61861 /* SearchDetailCollectionViewDataSource.swift */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		DDD1FFAD1F92C90B00FE4970 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				DDD1FFAE1F92C96400FE4970 /* CustomUIButton.swift */,
+			);
+			path = Subclasses;
 			sourceTree = "<group>";
 		};
 		DDF029651F8A0D1D00FE99DE /* ViewModel */ = {
@@ -234,10 +260,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA2451C1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift in Sources */,
+				DD4AD60D1F8F4E6300077FA7 /* VenueBestPhoto.swift in Sources */,
 				DDC785571F8B42B000A0EF0C /* SearchDetailController.swift in Sources */,
 				DD75AAEB1F85C4FA00FB432B /* Result.swift in Sources */,
 				DDBED94D1F81C3B200D7CB4C /* SearchController.swift in Sources */,
 				DDBED9481F81A96400D7CB4C /* Endpoint.swift in Sources */,
+				DDD1FFAF1F92C96400FE4970 /* CustomUIButton.swift in Sources */,
 				DD75AAE91F85BFE200FB432B /* FoursquareAPIClient.swift in Sources */,
 				DD13283E1F8C8C74009CD9BF /* Telephone.swift in Sources */,
 				DD9CAB7B1F89FEA400984038 /* SearchTableViewCell.swift in Sources */,
@@ -245,7 +274,10 @@
 				DD9CAB781F89F97B00984038 /* SearchControllerDataSource.swift in Sources */,
 				DD17C83D1F7F69D900521FD1 /* AppDelegate.swift in Sources */,
 				DD1B7D131F8DAF65007C8B77 /* APIKey.swift in Sources */,
+				DDA2451A1F91D55C00ABBFA8 /* VenuePhoto.swift in Sources */,
+				DD601A031F8F4A31001341E2 /* VenueCategory.swift in Sources */,
 				DD75AAE71F85BED200FB432B /* Venue.swift in Sources */,
+				DDC8DEBF1F91B57C00F61861 /* SearchDetailCollectionViewDataSource.swift in Sources */,
 				DD26BEEC1F8321E7005E6AB0 /* APIClient.swift in Sources */,
 				DDBED94A1F81B2A900D7CB4C /* FoursqureAPIKey.swift in Sources */,
 				DDF029691F8A0D5900FE99DE /* SearchVenueViewModel.swift in Sources */,
