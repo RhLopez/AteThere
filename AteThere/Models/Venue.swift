@@ -8,12 +8,15 @@
 
 import Foundation
 
-struct Venue {
+class Venue {
     let name: String
     let id: String
     let location: Location?
     let url: String?
     let telphone: Telephone?
+    let category: VenueCategory?
+    var bestPhoto: VenueBestPhoto? = nil
+    var photos: [VenuePhoto] = []
     
     init?(json: [String: AnyObject]) {        
         guard let name = json[JSONKeys.name.description] as? String,
@@ -36,8 +39,22 @@ struct Venue {
             self.location = nil
         }
         
+        if let categoryDict = json[JSONKeys.categories.description] as? [[String: AnyObject]] {
+            self.category = VenueCategory(json: categoryDict)
+        } else {
+            self.category = nil
+        }
+        
         url = json[JSONKeys.url.description] as? String ?? nil
         
+    }
+    
+    func updateWithPhotos(json: [String: AnyObject]) {
+        if let bestPhotoDict = json[JSONKeys.bestPhoto.description] as? [String: AnyObject] {
+            self.bestPhoto = VenueBestPhoto(json: bestPhotoDict)
+        } else {
+            self.bestPhoto = nil
+        }
     }
 }
 
@@ -47,6 +64,11 @@ extension Venue {
         case id
         case contact
         case location
+        case categories
+        case bestPhoto
+        case photos
+        case groups
+        case items
         case url
         
         var description: String {
@@ -55,6 +77,11 @@ extension Venue {
             case .id: return "id"
             case .contact: return "contact"
             case .location: return "location"
+            case .categories: return "categories"
+            case .bestPhoto: return "bestPhoto"
+            case .photos: return "photos"
+            case .groups: return "groups"
+            case .items: return "items"
             case .url: return "url"
             }
         }
