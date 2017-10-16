@@ -10,17 +10,12 @@ import UIKit
 
 class CustomUIButton: UIButton {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        initButton()
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        initButton()
+        customizeButton()
     }
     
-    func initButton() {
+    private func customizeButton() {
         layer.cornerRadius = 5.0
         layer.shadowRadius = 5
         layer.shadowColor = UIColor.lightGray.cgColor
