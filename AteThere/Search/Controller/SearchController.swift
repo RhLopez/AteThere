@@ -15,16 +15,11 @@ class SearchController: UITableViewController {
     let searchController = UISearchController(searchResultsController: nil)
     let dataSource = SearchControllerDataSource()
     
-    lazy var apiKey: APIKey = {
-        // Add clientID and clientSecret to FoursquareAPIKey.swift
-        // or replace with a different type
-       return FoursquareAPIKey()
-    }()
-    
     lazy var client: FoursquareAPIClient = {
-       return FoursquareAPIClient(apiKey: self.apiKey)
+       return FoursquareAPIClient(apiKey: FoursquareAPIKey())
     }()
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchController()
@@ -41,6 +36,9 @@ class SearchController: UITableViewController {
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchResultsUpdater = self
+
+        let textfield = self.searchController.searchBar.value(forKey: "searchField") as! UITextField
+        textfield.tintColor = .black
     }
 }
 
