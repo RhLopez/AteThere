@@ -28,10 +28,6 @@ class SearchDetailController: UIViewController {
        return SearchDetailCollectionViewDataSource(venue: self.venue!, client: self.client!)
     }()
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,11 +90,19 @@ class SearchDetailController: UIViewController {
         }
     }
     
+    // MARK: - IBActions
+    @IBAction func selectButtonPressed(_ sender: CustomUIButton) {
+        let addMealVC = storyboard?.instantiateViewController(withIdentifier: "AddMealController") as! AddMealController
+        addMealVC.venue = venue
+        self.navigationController?.pushViewController(addMealVC, animated: true)
+    }
+    
     @IBAction func backButtonPressed(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
 }
 
+// MARK: - UIGesturesRecognizerDelegate
 extension SearchDetailController: UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
