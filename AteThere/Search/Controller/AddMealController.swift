@@ -12,15 +12,21 @@ import UIKit
 class AddMealController: UIViewController {
     
     // MARK: - IBOutlet
+    @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var mealImage: UIImageView!
     @IBOutlet weak var addPictureButton: UIButton!
+    @IBOutlet weak var mealNameTextField: CustomTextField!
+    @IBOutlet weak var dateTextField: CustomTextField!
+    @IBOutlet weak var commentTextField: CustomTextField!
     
     // MARK: - Properties
     var venue: Venue?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(self.view.frame.width)
+        configureScrollView()
+        registerKeyboardNotifications()
+        setTextFieldDelegates()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,11 +34,11 @@ class AddMealController: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
+    // MARK: - IBAction
     @IBAction func dismissButtonPressed(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    // MARK: - IBAction
     @IBAction func addPictureButtonPressed(_ sender: UIButton) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -44,7 +50,6 @@ class AddMealController: UIViewController {
             } else {
                 imagePicker.sourceType = .camera
                 self.present(imagePicker, animated: true, completion: nil)
-                self.addPictureButton.isHidden = true
             }
         }
         
@@ -71,11 +76,40 @@ class AddMealController: UIViewController {
 
 // MARK: - Helper
 extension AddMealController {
+    func  registerKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboardHeight), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustForKeyboardHeight), name: .UIKeyboardWillChangeFrame, object: nil)
+    }
+    
+    func configureScrollView() {
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.scrollView.contentInset = UIEdgeInsets.zero
+    }
+    
+    func setTextFieldDelegates() {
+        mealNameTextField.delegate = self
+        dateTextField.delegate = self
+        commentTextField.delegate = self
+    }
+    
     func showNoCameraMessage() {
         let alertController = UIAlertController(title: "Alert", message: "Camera is not available on this device", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc func adjustForKeyboardHeight(notification: Notification) {
+        if let userInfo = notification.userInfo {
+            let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, to: view.window)
+            
+            if notification.name == Notification.Name.UIKeyboardWillHide {
+                scrollView.contentInset = UIEdgeInsets.zero
+            } else {
+                scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+            }
+        }
     }
 }
 
@@ -87,6 +121,14 @@ extension AddMealController: UIImagePickerControllerDelegate, UINavigationContro
         }
         
         dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension AddMealController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 
