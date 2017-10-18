@@ -9,7 +9,7 @@
 import Foundation
 
 struct FoursquareAPIKey: APIKey {
-    var clientID = "YOUR_CLIENT_ID"
-    var clientSecret = "YOUR_CLIENT_SECRET"
+    var clientID = "PIT200U4ZPB4ELPPH052XHRGVZYKBXKO1UTW2DUMMAYNUN2H"
+    var clientSecret = "T4CNTEX5BCQKFF4MQZRVO4ON3GLJA4GJXXIN5K5TXXAUGEIR"
 }
 
