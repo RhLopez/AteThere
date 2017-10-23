@@ -338,29 +338,28 @@
                                                         <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="0.78000000000000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0UD-oT-LPc" customClass="CustomTextField" customModule="AteThere" customModuleProvider="target">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d4x-0e-enq" customClass="CustomTextView" customModule="AteThere" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="185" width="343" height="30"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="lIr-dt-k0X"/>
+                                                            <constraint firstAttribute="height" constant="30" id="LLE-Cs-vyt"/>
                                                         </constraints>
-                                                        <color key="textColor" red="0.31322862689999997" green="0.31322862689999997" blue="0.31322862689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                                    </textView>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="TXD-7d-Kmo" firstAttribute="leading" secondItem="RNO-Gl-0Hb" secondAttribute="leading" id="8g5-u0-ZGG"/>
                                                     <constraint firstItem="6cp-c6-Lgr" firstAttribute="leading" secondItem="RNO-Gl-0Hb" secondAttribute="leading" id="8yj-No-8si"/>
-                                                    <constraint firstItem="0UD-oT-LPc" firstAttribute="width" secondItem="RNO-Gl-0Hb" secondAttribute="width" id="IUG-X0-9h2"/>
-                                                    <constraint firstAttribute="trailing" secondItem="0UD-oT-LPc" secondAttribute="trailing" id="LNq-KZ-qEF"/>
+                                                    <constraint firstItem="d4x-0e-enq" firstAttribute="leading" secondItem="RNO-Gl-0Hb" secondAttribute="leading" id="HUi-uM-jgO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="d4x-0e-enq" secondAttribute="trailing" id="LH8-ap-qWr"/>
                                                     <constraint firstAttribute="trailing" secondItem="6cp-c6-Lgr" secondAttribute="trailing" id="Rbx-dc-AF6"/>
                                                     <constraint firstItem="6cp-c6-Lgr" firstAttribute="width" secondItem="RNO-Gl-0Hb" secondAttribute="width" id="TcD-w4-N6e"/>
                                                     <constraint firstItem="TXD-7d-Kmo" firstAttribute="width" secondItem="RNO-Gl-0Hb" secondAttribute="width" id="Trn-Yg-mro"/>
-                                                    <constraint firstItem="0UD-oT-LPc" firstAttribute="leading" secondItem="RNO-Gl-0Hb" secondAttribute="leading" id="gEB-wG-RYy"/>
                                                     <constraint firstAttribute="trailing" secondItem="TXD-7d-Kmo" secondAttribute="trailing" id="lee-v4-gt4"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ecO-Mh-zDk">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ecO-Mh-zDk" customClass="RatingControl" customModule="AteThere" customModuleProvider="target">
                                                 <rect key="frame" x="58" y="258" width="259" height="34"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7v3-PR-gjK">
@@ -369,7 +368,7 @@
                                                             <constraint firstAttribute="height" constant="34" id="KlY-1S-Ze4"/>
                                                             <constraint firstAttribute="width" constant="51" id="VK5-1D-mzf"/>
                                                         </constraints>
-                                                        <state key="normal" image="EmptyStart"/>
+                                                        <state key="normal" image="emptyStar"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRB-Yh-BlG">
                                                         <rect key="frame" x="52" y="0.0" width="51" height="34"/>
@@ -377,7 +376,7 @@
                                                             <constraint firstAttribute="width" constant="51" id="0k2-HR-ww4"/>
                                                             <constraint firstAttribute="height" constant="34" id="7Ns-vN-li1"/>
                                                         </constraints>
-                                                        <state key="normal" image="EmptyStart"/>
+                                                        <state key="normal" image="emptyStar"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0I-Dj-EqD">
                                                         <rect key="frame" x="104" y="0.0" width="51" height="34"/>
@@ -385,7 +384,7 @@
                                                             <constraint firstAttribute="height" constant="34" id="Evt-83-ih2"/>
                                                             <constraint firstAttribute="width" constant="51" id="gxp-YD-2n3"/>
                                                         </constraints>
-                                                        <state key="normal" image="EmptyStart"/>
+                                                        <state key="normal" image="emptyStar"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRs-7X-qLs">
                                                         <rect key="frame" x="156" y="0.0" width="51" height="34"/>
@@ -393,7 +392,7 @@
                                                             <constraint firstAttribute="height" constant="34" id="c9z-HE-Ga0"/>
                                                             <constraint firstAttribute="width" constant="51" id="z0S-1u-UWc"/>
                                                         </constraints>
-                                                        <state key="normal" image="EmptyStart"/>
+                                                        <state key="normal" image="emptyStar"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahb-Yy-g4R">
                                                         <rect key="frame" x="208" y="0.0" width="51" height="34"/>
@@ -401,7 +400,7 @@
                                                             <constraint firstAttribute="height" constant="34" id="ee3-RU-EGm"/>
                                                             <constraint firstAttribute="width" constant="51" id="fWO-0B-03G"/>
                                                         </constraints>
-                                                        <state key="normal" image="EmptyStart"/>
+                                                        <state key="normal" image="emptyStar"/>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -482,7 +481,8 @@
                     </view>
                     <connections>
                         <outlet property="addPictureButton" destination="VSJ-YY-m1C" id="5OP-d5-G4M"/>
-                        <outlet property="commentTextField" destination="0UD-oT-LPc" id="uCg-fJ-91N"/>
+                        <outlet property="commentTextView" destination="d4x-0e-enq" id="SkL-4Q-jPv"/>
+                        <outlet property="commentTextViewHeightConstraint" destination="LLE-Cs-vyt" id="7c1-cd-R07"/>
                         <outlet property="dateTextField" destination="6cp-c6-Lgr" id="xfT-hw-V0r"/>
                         <outlet property="mealImage" destination="Mzy-a7-TQU" id="FNg-Le-bBt"/>
                         <outlet property="mealNameTextField" destination="TXD-7d-Kmo" id="M1G-pR-A5b"/>
@@ -513,7 +513,7 @@
             </objects>
             <point key="canvasLocation" x="140" y="-585"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Ate There-->
         <scene sceneID="QjL-2V-uaq">
             <objects>
                 <tableViewController id="oUJ-Rj-9k6" sceneMemberID="viewController">
@@ -536,7 +536,7 @@
                             <outlet property="delegate" destination="oUJ-Rj-9k6" id="77l-h1-2FO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="CtO-sI-20S">
+                    <navigationItem key="navigationItem" title="Ate There" id="CtO-sI-20S">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Nnj-Ad-Yrx">
                             <connections>
                                 <segue destination="wIn-FY-Eee" kind="presentation" id="o6H-aZ-Fm7"/>
@@ -558,6 +558,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="1" green="0.36470588240000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -572,7 +576,7 @@
     <resources>
         <image name="BackButton" width="37" height="37"/>
         <image name="CameraPlaceHolder" width="414" height="240"/>
-        <image name="EmptyStart" width="25" height="24"/>
         <image name="PlaceHolder" width="120" height="122"/>
+        <image name="emptyStar" width="25" height="24"/>
     </resources>
 </document>
