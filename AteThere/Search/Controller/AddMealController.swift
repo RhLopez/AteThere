@@ -17,7 +17,9 @@ class AddMealController: UIViewController {
     @IBOutlet weak var addPictureButton: UIButton!
     @IBOutlet weak var mealNameTextField: CustomTextField!
     @IBOutlet weak var dateTextField: CustomTextField!
-    @IBOutlet weak var commentTextField: CustomTextField!
+    @IBOutlet weak var commentTextView: CustomTextView!
+    @IBOutlet weak var commentTextViewHeightConstraint: NSLayoutConstraint!
+    
     
     // MARK: - Properties
     var venue: Venue?
@@ -89,7 +91,7 @@ extension AddMealController {
     func setTextFieldDelegates() {
         mealNameTextField.delegate = self
         dateTextField.delegate = self
-        commentTextField.delegate = self
+        commentTextView.delegate = self
     }
     
     func showNoCameraMessage() {
@@ -129,6 +131,16 @@ extension AddMealController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+// MARK: - UITextViewDelegate
+extension AddMealController: UITextViewDelegate {
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        let contentSize = commentTextView.sizeThatFits(self.commentTextView.bounds.size)
+        var frame = commentTextView.frame
+        frame.size.height = contentSize.height
+        commentTextView.frame = frame
     }
 }
 
