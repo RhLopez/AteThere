@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct VenueBestPhoto {
+struct SearchVenueBestPhoto {
     var image: UIImage?
     let imageUrl: String
     
@@ -22,7 +22,7 @@ struct VenueBestPhoto {
     }
 }
 
-extension VenueBestPhoto {
+extension SearchVenueBestPhoto {
     enum JSONKeys: String {
         case prefix
         case suffix

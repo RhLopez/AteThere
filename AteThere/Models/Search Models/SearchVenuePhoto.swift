@@ -14,7 +14,7 @@ enum ImageState {
     case placeholder
 }
 
-struct VenuePhoto {
+struct SearchVenuePhoto {
     var imageUrl: String?
     var image: UIImage?
     var imageState = ImageState.placeholder
@@ -29,7 +29,7 @@ struct VenuePhoto {
     }
 }
 
-extension VenuePhoto {
+extension SearchVenuePhoto {
     enum JSONKeys: String {
         case prefix
         case suffix

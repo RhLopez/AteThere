@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct VenueCategory {
+struct SearchVenueCategory {
     let categoryName: String
     
     init?(json: [[String: AnyObject]]) {
@@ -21,7 +21,7 @@ struct VenueCategory {
     }
 }
 
-extension VenueCategory {
+extension SearchVenueCategory {
     enum JSONKeys: String {
         case shortName
         

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Telephone {
+struct SearchVenueTelephone {
     let formattedPhone: String
     
     init?(json: [String: AnyObject]) {
@@ -20,7 +20,7 @@ struct Telephone {
     }
 }
 
-extension Telephone {
+extension SearchVenueTelephone {
     enum JSONKeys {
         case formattedPhone
         
