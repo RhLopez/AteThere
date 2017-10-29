@@ -31,6 +31,14 @@ class SearchController: UITableViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DispatchQueue.main.async {
+            self.searchController.searchBar.becomeFirstResponder()
+        }
+    }
+    
     func setupSearchController() {
         self.navigationItem.titleView = searchController.searchBar
         searchController.dimsBackgroundDuringPresentation = false
