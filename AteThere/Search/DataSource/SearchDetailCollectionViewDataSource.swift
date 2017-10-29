@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 class SearchDetailCollectionViewDataSource: NSObject {
-    private var venue: Venue
+    private var venue: SearchVenue
     private var client: FoursquareAPIClient
     
-    init(venue: Venue, client: FoursquareAPIClient) {
+    init(venue: SearchVenue, client: FoursquareAPIClient) {
         self.venue = venue
         self.client = client
     }
@@ -51,7 +51,7 @@ extension SearchDetailCollectionViewDataSource: UICollectionViewDataSource {
 
 // MARK: - Helper
 extension SearchDetailCollectionViewDataSource {
-    func update(withPhotos photos: [VenuePhoto]) {
+    func update(withPhotos photos: [SearchVenuePhoto]) {
         self.venue.photos = photos
     }
 }

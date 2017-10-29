@@ -22,7 +22,7 @@ class FoursquareAPIClient: APIClient {
         self.init(sessionConfiguration: .default, apiKey: apiKey)
     }
     
-    func search(withTerm term: String, completion: @escaping (Result<[Venue], APIError>) -> Void) {
+    func search(withTerm term: String, completion: @escaping (Result<[SearchVenue], APIError>) -> Void) {
         let endpoint = Foursquare.search(term: term, key: apiKey)
         
         let task = jsonTask(with: endpoint.request) { (json, error) in
@@ -39,14 +39,14 @@ class FoursquareAPIClient: APIClient {
                         return
                 }
                 
-                let venues = venuesDict.flatMap { Venue(json: $0) }
+                let venues = venuesDict.flatMap { SearchVenue(json: $0) }
                 completion(.success(venues))
             }
         }
         task.resume()
     }
     
-    func updateVenueDetails(_ venue: Venue, completion: @escaping (Result<Venue, APIError>) -> Void) {
+    func updateVenueDetails(_ venue: SearchVenue, completion: @escaping (Result<SearchVenue, APIError>) -> Void) {
         let endpoint = Foursquare.lookUp(id: venue.id, key: apiKey)
 
         let task = jsonTask(with: endpoint.request) { (json, error) in
@@ -71,7 +71,7 @@ class FoursquareAPIClient: APIClient {
         task.resume()
     }
     
-    func bestPhoto(_ venue: Venue, completion: @escaping(Result<UIImage, APIError>) -> Void) {
+    func bestPhoto(_ venue: SearchVenue, completion: @escaping(Result<UIImage, APIError>) -> Void) {
         guard let urlString = venue.bestPhoto?.imageUrl else {
             completion(.failure(.invalidURL))
             return
@@ -93,7 +93,7 @@ class FoursquareAPIClient: APIClient {
         }
     }
     
-    func getPhotos(forVenue venue: Venue, completion: @escaping(Result<[VenuePhoto], APIError>) -> Void) {
+    func getPhotos(forVenue venue: SearchVenue, completion: @escaping(Result<[SearchVenuePhoto], APIError>) -> Void) {
         let endpoint = Foursquare.photos(id: venue.id, key: apiKey)
         
         let task = jsonTask(with: endpoint.request) { (json, error) in
@@ -110,14 +110,14 @@ class FoursquareAPIClient: APIClient {
                         return
                 }
                 
-                let venuePhotos = items.flatMap { VenuePhoto(json: $0) }
+                let venuePhotos = items.flatMap { SearchVenuePhoto(json: $0) }
                 completion(.success(venuePhotos))
             }
         }
         task.resume()
     }
     
-    func getPhoto(forVenue venue: Venue, atIndexPath indexPath: IndexPath, completion: @escaping (Result<Venue, APIError>) -> Void) {
+    func getPhoto(forVenue venue: SearchVenue, atIndexPath indexPath: IndexPath, completion: @escaping (Result<SearchVenue, APIError>) -> Void) {
         guard let urlString = venue.photos[indexPath.row].imageUrl else {
             completion(.failure(.invalidURL))
             return

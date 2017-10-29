@@ -21,7 +21,7 @@ class SearchDetailController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
-    var venue: Venue?
+    var venue: SearchVenue?
     var client: FoursquareAPIClient?
     
     lazy var collectionViewDataSource: SearchDetailCollectionViewDataSource = {
@@ -53,7 +53,7 @@ class SearchDetailController: UIViewController {
         venueWebsiteLabel.text = viewModel.url
     }
     
-    func updateVenueDetails(forVenue venue: Venue, client: FoursquareAPIClient) {
+    func updateVenueDetails(forVenue venue: SearchVenue, client: FoursquareAPIClient) {
         client.updateVenueDetails(venue) { (result) in
             switch result {
             case .success(let venue):
@@ -66,7 +66,7 @@ class SearchDetailController: UIViewController {
         }
     }
     
-    func getBestPhoto(forVenue venue: Venue, client: FoursquareAPIClient) {
+    func getBestPhoto(forVenue venue: SearchVenue, client: FoursquareAPIClient) {
         client.bestPhoto(venue) { (result) in
             switch result {
             case .success(let image):
@@ -77,7 +77,7 @@ class SearchDetailController: UIViewController {
         }
     }
     
-    func getVenuePhotos(forVenue venue: Venue, client: FoursquareAPIClient) {
+    func getVenuePhotos(forVenue venue: SearchVenue, client: FoursquareAPIClient) {
         client.getPhotos(forVenue: venue) { (result) in
             switch result {
             case .success(let photos):
@@ -93,7 +93,7 @@ class SearchDetailController: UIViewController {
     // MARK: - IBActions
     @IBAction func selectButtonPressed(_ sender: CustomUIButton) {
         let addMealVC = storyboard?.instantiateViewController(withIdentifier: "AddMealController") as! AddMealController
-        addMealVC.venue = venue
+        addMealVC.searchVenue = venue
         self.navigationController?.pushViewController(addMealVC, animated: true)
     }
     

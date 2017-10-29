@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 class SearchControllerDataSource: NSObject {
-    private var venues: [Venue]
+    private var venues: [SearchVenue]
     
-    init(venues: [Venue]) {
+    init(venues: [SearchVenue]) {
         self.venues = venues
     }
     
@@ -46,11 +46,11 @@ extension SearchControllerDataSource: UITableViewDataSource {
 }
 
 extension SearchControllerDataSource {
-    func update(withVenues venues: [Venue]) {
+    func update(withVenues venues: [SearchVenue]) {
         self.venues = venues
     }
     
-    func getVenue(forIndexPath indexPath: IndexPath) -> Venue {
+    func getVenue(forIndexPath indexPath: IndexPath) -> SearchVenue {
         return venues[indexPath.row]
     }
 }
