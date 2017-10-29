@@ -19,10 +19,12 @@ class AddMealController: UIViewController {
     @IBOutlet weak var dateTextField: CustomTextField!
     @IBOutlet weak var commentTextView: CustomTextView!
     @IBOutlet weak var commentTextViewHeightConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var ratingControl: RatingControl!
     
     // MARK: - Properties
-    var venue: Venue?
+    var searchVenue: SearchVenue?
+    let realmService = RealmService()
+    let fileManagerService = FileManagerService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,10 @@ class AddMealController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    
+    override func viewWillLayoutSubviews() {
+        commentTextViewHeightConstraint.constant = commentTextView.frame.height
     }
     
     // MARK: - IBAction
@@ -66,14 +72,24 @@ class AddMealController: UIViewController {
         alert.addAction(photoLibrayAction)
         alert.addAction(cancelAction)
         
-        if self.presentedViewController == nil {
-            self.present(alert, animated: true, completion: nil)
-        }
-        else {
+        if self.presentedViewController != nil {
             self.dismiss(animated: false, completion: nil)
-            self.present(alert, animated: true, completion: nil)
         }
+        
+        present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        let meal = Meal(name: mealNameTextField.text!, date: Date(), rating: ratingControl.rating, comment: commentTextView.text)
+        do {
+            try realmService.add(meal: meal, forVenue: searchVenue!)
+            fileManagerService.save(image: mealImage.image!, withPath: meal.photoPath)
+        } catch {
+            print(error)
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 // MARK: - Helper
@@ -141,6 +157,14 @@ extension AddMealController: UITextViewDelegate {
         var frame = commentTextView.frame
         frame.size.height = contentSize.height
         commentTextView.frame = frame
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
 }
 
