@@ -15,7 +15,7 @@ struct SearchVenueViewModel {
     let phoneNumber: String
     let url: String
     
-    init(withVenue venue: Venue) {
+    init(withVenue venue: SearchVenue) {
         self.name = venue.name
         self.id = venue.id
         
