@@ -30,12 +30,10 @@
 		DD8793711F83507900995D48 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8793701F83507900995D48 /* APIError.swift */; };
 		DD8BF41D1FA50A82002A011D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8BF41C1FA50A82002A011D /* RealmService.swift */; };
 		DD8BF4251FA51849002A011D /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8BF4241FA51849002A011D /* FileManagerService.swift */; };
-		DD8BF4271FA53FAC002A011D /* VenueDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8BF4261FA53FAC002A011D /* VenueDataStore.swift */; };
 		DD9CAB781F89F97B00984038 /* SearchControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9CAB771F89F97B00984038 /* SearchControllerDataSource.swift */; };
 		DD9CAB7B1F89FEA400984038 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9CAB7A1F89FEA400984038 /* SearchTableViewCell.swift */; };
 		DDA2451A1F91D55C00ABBFA8 /* SearchVenuePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA245191F91D55C00ABBFA8 /* SearchVenuePhoto.swift */; };
 		DDA2451C1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2451B1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift */; };
-		DDAC897A1F9D723300E3A3C6 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC89791F9D723300E3A3C6 /* DataStore.swift */; };
 		DDB84F871FA445800040E211 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB84F861FA445800040E211 /* Venue.swift */; };
 		DDB84F891FA46CFB0040E211 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB84F881FA46CFB0040E211 /* Location.swift */; };
 		DDBED9481F81A96400D7CB4C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBED9471F81A96400D7CB4C /* Endpoint.swift */; };
@@ -44,6 +42,14 @@
 		DDC785571F8B42B000A0EF0C /* SearchDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC785561F8B42B000A0EF0C /* SearchDetailController.swift */; };
 		DDC7855A1F8B55AA00A0EF0C /* SearchLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC785591F8B55AA00A0EF0C /* SearchLocation.swift */; };
 		DDC8DEBF1F91B57C00F61861 /* SearchDetailCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC8DEBE1F91B57C00F61861 /* SearchDetailCollectionViewDataSource.swift */; };
+		DDC98D001FA68AFA001EE73C /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC98CFF1FA68AFA001EE73C /* HomeViewControllerTests.swift */; };
+		DDC98D021FA68C38001EE73C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC98D011FA68C38001EE73C /* HomeViewController.swift */; };
+		DDC98D041FA68CF4001EE73C /* RealmServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC98D031FA68CF4001EE73C /* RealmServiceTests.swift */; };
+		DDC98D081FA69B72001EE73C /* VenueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC98D071FA69B72001EE73C /* VenueService.swift */; };
+		DDC98D0D1FA6A095001EE73C /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC98D0C1FA6A095001EE73C /* HomeViewModelTests.swift */; };
+		DDC98D0F1FA6A228001EE73C /* HomeVenueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC98D0E1FA6A228001EE73C /* HomeVenueViewModel.swift */; };
+		DDC98D111FA6A957001EE73C /* AteThereRootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC98D101FA6A957001EE73C /* AteThereRootNavigationController.swift */; };
+		DDCFE0821FA6AEB300EACCBA /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFE0811FA6AEB300EACCBA /* HomeTableViewCell.swift */; };
 		DDD1FFAF1F92C96400FE4970 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD1FFAE1F92C96400FE4970 /* CustomUIButton.swift */; };
 		DDE914D71F9425270035188E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE914D61F9425270035188E /* CustomTextField.swift */; };
 		DDF029691F8A0D5900FE99DE /* SearchVenueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF029681F8A0D5900FE99DE /* SearchVenueViewModel.swift */; };
@@ -90,12 +96,10 @@
 		DD8793701F83507900995D48 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		DD8BF41C1FA50A82002A011D /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		DD8BF4241FA51849002A011D /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
-		DD8BF4261FA53FAC002A011D /* VenueDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueDataStore.swift; sourceTree = "<group>"; };
 		DD9CAB771F89F97B00984038 /* SearchControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerDataSource.swift; sourceTree = "<group>"; };
 		DD9CAB7A1F89FEA400984038 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		DDA245191F91D55C00ABBFA8 /* SearchVenuePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenuePhoto.swift; sourceTree = "<group>"; };
 		DDA2451B1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailCollectionViewCell.swift; sourceTree = "<group>"; };
-		DDAC89791F9D723300E3A3C6 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		DDB84F861FA445800040E211 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		DDB84F881FA46CFB0040E211 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DDBED9471F81A96400D7CB4C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -104,6 +108,14 @@
 		DDC785561F8B42B000A0EF0C /* SearchDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailController.swift; sourceTree = "<group>"; };
 		DDC785591F8B55AA00A0EF0C /* SearchLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocation.swift; sourceTree = "<group>"; };
 		DDC8DEBE1F91B57C00F61861 /* SearchDetailCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		DDC98CFF1FA68AFA001EE73C /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
+		DDC98D011FA68C38001EE73C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DDC98D031FA68CF4001EE73C /* RealmServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmServiceTests.swift; sourceTree = "<group>"; };
+		DDC98D071FA69B72001EE73C /* VenueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueService.swift; sourceTree = "<group>"; };
+		DDC98D0C1FA6A095001EE73C /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		DDC98D0E1FA6A228001EE73C /* HomeVenueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVenueViewModel.swift; sourceTree = "<group>"; };
+		DDC98D101FA6A957001EE73C /* AteThereRootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AteThereRootNavigationController.swift; sourceTree = "<group>"; };
+		DDCFE0811FA6AEB300EACCBA /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		DDD1FFAE1F92C96400FE4970 /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
 		DDE914D61F9425270035188E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		DDF029681F8A0D5900FE99DE /* SearchVenueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenueViewModel.swift; sourceTree = "<group>"; };
@@ -180,6 +192,7 @@
 				DDC0898C1F9DC2A40034D00D /* Favorites */,
 				DDBED9461F81A8F800D7CB4C /* Networking */,
 				DD17C83C1F7F69D900521FD1 /* AppDelegate.swift */,
+				DDC98D101FA6A957001EE73C /* AteThereRootNavigationController.swift */,
 				DD17C8401F7F69D900521FD1 /* Main.storyboard */,
 				DD17C8431F7F69D900521FD1 /* Assets.xcassets */,
 				DD17C8451F7F69D900521FD1 /* LaunchScreen.storyboard */,
@@ -192,7 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				DD640B061F9993E500763C90 /* Info.plist */,
-				DD640B0C1F99964100763C90 /* MealDataStoreTest.swift */,
+				DDC98D061FA68D2D001EE73C /* Favorites */,
+				DDC98D051FA68D1F001EE73C /* Services */,
 			);
 			path = AteThereTests;
 			sourceTree = "<group>";
@@ -201,10 +215,9 @@
 			isa = PBXGroup;
 			children = (
 				DD640B111F999A4800763C90 /* SimpleMealDataStore.swift */,
-				DDAC89791F9D723300E3A3C6 /* DataStore.swift */,
-				DD8BF4261FA53FAC002A011D /* VenueDataStore.swift */,
 				DD8BF41C1FA50A82002A011D /* RealmService.swift */,
 				DD8BF4241FA51849002A011D /* FileManagerService.swift */,
+				DDC98D071FA69B72001EE73C /* VenueService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -288,6 +301,7 @@
 		DDC0898C1F9DC2A40034D00D /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				DDC98D091FA69EE8001EE73C /* DataSource */,
 				DDC089931F9DCCB30034D00D /* ViewModel */,
 				DDC089901F9DC7330034D00D /* View */,
 				DDC0898F1F9DC7180034D00D /* Contoller */,
@@ -298,6 +312,7 @@
 		DDC0898F1F9DC7180034D00D /* Contoller */ = {
 			isa = PBXGroup;
 			children = (
+				DDC98D011FA68C38001EE73C /* HomeViewController.swift */,
 			);
 			path = Contoller;
 			sourceTree = "<group>";
@@ -305,6 +320,7 @@
 		DDC089901F9DC7330034D00D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DDCFE0811FA6AEB300EACCBA /* HomeTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -312,6 +328,7 @@
 		DDC089931F9DCCB30034D00D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DDC98D0E1FA6A228001EE73C /* HomeVenueViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -323,6 +340,48 @@
 				DDC8DEBE1F91B57C00F61861 /* SearchDetailCollectionViewDataSource.swift */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		DDC98D051FA68D1F001EE73C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DD640B0C1F99964100763C90 /* MealDataStoreTest.swift */,
+				DDC98D031FA68CF4001EE73C /* RealmServiceTests.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DDC98D061FA68D2D001EE73C /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				DDC98D0B1FA6A052001EE73C /* Controller */,
+				DDC98D0A1FA6A02C001EE73C /* ViewModel */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		DDC98D091FA69EE8001EE73C /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		DDC98D0A1FA6A02C001EE73C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DDC98D0C1FA6A095001EE73C /* HomeViewModelTests.swift */,
+			);
+			name = ViewModel;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		DDC98D0B1FA6A052001EE73C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDC98CFF1FA68AFA001EE73C /* HomeViewControllerTests.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		DDD1FFAD1F92C90B00FE4970 /* Subclasses */ = {
@@ -563,13 +622,16 @@
 				DD4AD60D1F8F4E6300077FA7 /* SearchVenueBestPhoto.swift in Sources */,
 				DDC785571F8B42B000A0EF0C /* SearchDetailController.swift in Sources */,
 				DD75AAEB1F85C4FA00FB432B /* Result.swift in Sources */,
+				DDC98D021FA68C38001EE73C /* HomeViewController.swift in Sources */,
 				DD163A3E1F9C34FE00154687 /* RatingControl.swift in Sources */,
 				DDBED94D1F81C3B200D7CB4C /* SearchController.swift in Sources */,
 				DD640B0F1F999A0900763C90 /* Meal.swift in Sources */,
+				DDC98D081FA69B72001EE73C /* VenueService.swift in Sources */,
+				DDC98D0F1FA6A228001EE73C /* HomeVenueViewModel.swift in Sources */,
 				DDBED9481F81A96400D7CB4C /* Endpoint.swift in Sources */,
-				DD8BF4271FA53FAC002A011D /* VenueDataStore.swift in Sources */,
 				DDD1FFAF1F92C96400FE4970 /* CustomUIButton.swift in Sources */,
 				DD75AAE91F85BFE200FB432B /* FoursquareAPIClient.swift in Sources */,
+				DDCFE0821FA6AEB300EACCBA /* HomeTableViewCell.swift in Sources */,
 				DD13283E1F8C8C74009CD9BF /* SearchVenueTelephone.swift in Sources */,
 				DD9CAB7B1F89FEA400984038 /* SearchTableViewCell.swift in Sources */,
 				DD7FD5031F94110800541E44 /* AddMealController.swift in Sources */,
@@ -580,12 +642,12 @@
 				DD17C83D1F7F69D900521FD1 /* AppDelegate.swift in Sources */,
 				DD1B7D131F8DAF65007C8B77 /* APIKey.swift in Sources */,
 				DDA2451A1F91D55C00ABBFA8 /* SearchVenuePhoto.swift in Sources */,
+				DDC98D111FA6A957001EE73C /* AteThereRootNavigationController.swift in Sources */,
 				DD187D051F9D3B3000E81A8C /* CustomTextView.swift in Sources */,
 				DD601A031F8F4A31001341E2 /* SearchVenueCategory.swift in Sources */,
 				DD640B121F999A4800763C90 /* SimpleMealDataStore.swift in Sources */,
 				DD75AAE71F85BED200FB432B /* SearchVenue.swift in Sources */,
 				DDC8DEBF1F91B57C00F61861 /* SearchDetailCollectionViewDataSource.swift in Sources */,
-				DDAC897A1F9D723300E3A3C6 /* DataStore.swift in Sources */,
 				DD26BEEC1F8321E7005E6AB0 /* APIClient.swift in Sources */,
 				DDE914D71F9425270035188E /* CustomTextField.swift in Sources */,
 				DDBED94A1F81B2A900D7CB4C /* FoursqureAPIKey.swift in Sources */,
@@ -599,7 +661,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC98D041FA68CF4001EE73C /* RealmServiceTests.swift in Sources */,
 				DD640B0D1F99964100763C90 /* MealDataStoreTest.swift in Sources */,
+				DDC98D001FA68AFA001EE73C /* HomeViewControllerTests.swift in Sources */,
+				DDC98D0D1FA6A095001EE73C /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
