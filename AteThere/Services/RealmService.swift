@@ -13,7 +13,7 @@ enum RealmServiceError: Error {
     case ErrorSaving
 }
 
-class RealmService {
+class RealmService: VenueServicing {
     
     private var realm: Realm
     
@@ -27,8 +27,8 @@ class RealmService {
     }
     
     func add(meal: Meal, forVenue searchVenue: SearchVenue) throws {
-        var venue = Venue()
-        if let savedVenue = getVenue(named: venue.name, withId: venue.id) {
+        var venue: Venue
+        if let savedVenue = getVenue(named: searchVenue.name, withId: searchVenue.id) {
             venue = savedVenue
         } else {
             venue = Venue(withSearchVenue: searchVenue)
@@ -44,11 +44,17 @@ class RealmService {
             throw RealmServiceError.ErrorSaving
         }
     }
+    
+    func getVenues() -> [Venue] {
+        let resultsVenue = realm.objects(Venue.self).sorted(byKeyPath: "name")
+        let venues: [Venue] = resultsVenue.map { $0 }
+        return venues
+    }
 }
 
 // Mark: - Helper Methods
 extension RealmService {
-    func getVenue(named venueName: String, withId id: String) -> Venue? {
+    private func getVenue(named venueName: String, withId id: String) -> Venue? {
         if let venue = realm.objects(Venue.self).filter("name = %@", venueName).first, venue.id != id {
             return venue
         } else {
