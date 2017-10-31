@@ -11,4 +11,17 @@ import UIKit
 
 class HomeTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var venueName: UILabel!
+    @IBOutlet weak var venueCategory: UILabel!
+    @IBOutlet weak var firstMealPhoto: UIImageView!
+    
+    static var identifier: String {
+        return String(describing: HomeTableViewCell.self)
+    }
+    
+    func configure(withViewModel viewModel: HomeVenueViewModel) {
+        self.venueName.text = viewModel.name
+        self.venueCategory.text = viewModel.category
+        // TODO: Assign first meal photo to UIImageView
+    }
 }
