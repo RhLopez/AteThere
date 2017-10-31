@@ -7,31 +7,43 @@
 //
 
 import UIKit
+import RealmSwift
 
 class HomeViewController: UITableViewController {
     
     var venueService: VenueServicing?
+    var dataSource: HomeTableViewDataSource?
+    var notificationToken: NotificationToken?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-}
-
-
-// Mark: - TableViewDataSource
-extension HomeViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if let venues = venueService?.getVenues() {
+            dataSource = HomeTableViewDataSource(withVenues: venues)
+            tableView.dataSource = dataSource
+        }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return venueService?.getVenues().count ?? 0
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath)
-        cell.textLabel?.text = venueService?.getVenues()[indexPath.row].name
-        return cell
+    func subscribeNotificationToken() {
+        notificationToken = establishments.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+            guard let tableView = self?.tableView else { return }
+            switch changes {
+            case .initial:
+                tableView.reloadData()
+                break
+            case .update(_, let deletions, let insertions, let modifications):
+                tableView.beginUpdates()
+                tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .automatic)
+                tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                     with: .automatic)
+                tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                     with: .automatic)
+                tableView.endUpdates()
+                break
+            case .error(let error):
+                fatalError("\(error)")
+                break
+            }
+        }
     }
 }
