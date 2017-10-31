@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 class SearchControllerDataSource: NSObject {
-    private var venues: [SearchVenue]
+    private var searchVenue: [SearchVenue]
     
     init(venues: [SearchVenue]) {
-        self.venues = venues
+        self.searchVenue = venues
     }
     
     override convenience init() {
@@ -28,13 +28,13 @@ extension SearchControllerDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return venues.count
+        return searchVenue.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.identifier, for: indexPath) as? SearchTableViewCell {
             
-            let venue = venues[indexPath.row]
+            let venue = searchVenue[indexPath.row]
             let viewModel = SearchVenueViewModel(withVenue: venue)
             cell.update(withViewModel: viewModel)
             
@@ -47,10 +47,10 @@ extension SearchControllerDataSource: UITableViewDataSource {
 
 extension SearchControllerDataSource {
     func update(withVenues venues: [SearchVenue]) {
-        self.venues = venues
+        self.searchVenue = venues
     }
     
     func getVenue(forIndexPath indexPath: IndexPath) -> SearchVenue {
-        return venues[indexPath.row]
+        return searchVenue[indexPath.row]
     }
 }
