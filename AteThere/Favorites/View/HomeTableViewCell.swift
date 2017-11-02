@@ -19,9 +19,35 @@ class HomeTableViewCell: UITableViewCell {
         return String(describing: HomeTableViewCell.self)
     }
     
+    var imageCache = NSCache<NSString,UIImage>()
+    var fileManagerService = FileManagerService()
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        firstMealPhoto.layer.cornerRadius = 3
+    }
+    
     func configure(withViewModel viewModel: HomeVenueViewModel) {
-        self.venueName.text = viewModel.name
-        self.venueCategory.text = viewModel.category
-        // TODO: Assign first meal photo to UIImageView
+        venueName.text = viewModel.name
+        venueCategory.text = viewModel.category
+        firstMealPhoto.image = #imageLiteral(resourceName: "PlaceHolder")
+        loadImage(forPath: viewModel.photoPath)
+    }
+    
+    // Mark: - Helper Method
+    func loadImage(forPath path: String?) {
+        if let photoPath = path {
+            if let image = imageCache.object(forKey: photoPath as NSString) {
+                firstMealPhoto.image = image
+            } else {
+                fileManagerService.loadImage(withPath: photoPath, completion: { (image) in
+                    if let image = image {
+                        UIView.transition(with: self.firstMealPhoto, duration: 0.3, options: .transitionCrossDissolve, animations: { self.firstMealPhoto.image = image }, completion: nil)
+                        self.firstMealPhoto.image = image
+                        self.imageCache.setObject(image, forKey: photoPath as NSString)
+                    }
+                })
+            }
+        }
     }
 }
