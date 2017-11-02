@@ -37,6 +37,23 @@ class FileManagerService {
         }
     }
     
+    func loadImage(withPath path: String, completion: @escaping (UIImage?) -> Void) {
+        var savedImage: UIImage?
+        
+        let queue = DispatchQueue.global(qos: .userInitiated)
+        queue.async {
+            let directory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
+            let filename = directory.appendingPathComponent(path)
+            if let image = UIImage(contentsOfFile: filename) {
+                savedImage = image
+            }
+            
+            DispatchQueue.main.async {
+                completion(savedImage)                
+            }
+        }
+    }
+    
     private func getDocumentsDirectory() -> URL {
         let paths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0]
