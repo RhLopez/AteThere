@@ -9,16 +9,18 @@
 import Foundation
 import UIKit
 
+protocol SearchControllerDelegate: class {
+    func searchController(_ searchController: SearchController, didSelect searchVenue: SearchVenue?)
+}
+
 class SearchController: UITableViewController {
     
     // MARK: - Properties
     let searchController = UISearchController(searchResultsController: nil)
     let dataSource = SearchControllerDataSource()
-    
-    lazy var client: FoursquareAPIClient = {
-       return FoursquareAPIClient(apiKey: FoursquareAPIKey())
-    }()
-    
+    var client: FoursquareAPIClient?
+    weak var delegate: SearchControllerDelegate?
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,12 @@ class SearchController: UITableViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        searchController.isActive = false
+    }
+    
     func setupSearchController() {
         self.navigationItem.titleView = searchController.searchBar
         searchController.dimsBackgroundDuringPresentation = false
@@ -56,7 +64,7 @@ extension SearchController: UISearchResultsUpdating {
         let searchTerm = searchController.searchBar.text!
         
         if !searchTerm.isEmpty {
-            client.search(withTerm: searchTerm) { (result) in
+            client?.search(withTerm: searchTerm) { (result) in
                 switch result {
                 case .success(let venues):
                     self.dataSource.update(withVenues: venues)
@@ -75,11 +83,7 @@ extension SearchController: UISearchResultsUpdating {
 // MARK: - UITableViewDelegate
 extension SearchController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let venue = dataSource.getVenue(forIndexPath: indexPath)
-        let detailViewController = storyboard?.instantiateViewController(withIdentifier: "SearchDetailController") as! SearchDetailController
-        detailViewController.venue = venue
-        detailViewController.client = client
-        navigationController?.pushViewController(detailViewController, animated: true)
-        tableView.deselectRow(at: indexPath, animated: true)
+        let searchVenue = dataSource.getVenue(forIndexPath: indexPath)
+        delegate?.searchController(self, didSelect: searchVenue)
     }
 }
