@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+protocol SearchDetailControllerDelegate: class {
+    func searchDetailController(_ searchDetailController: SearchDetailController, didSelect searchVenue: SearchVenue?)
+}
+
 class SearchDetailController: UIViewController {
     
     // MARK: - IBOutlets
@@ -21,11 +25,12 @@ class SearchDetailController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
-    var venue: SearchVenue?
+    var searchVenue: SearchVenue?
     var client: FoursquareAPIClient?
+    weak var delegate: SearchDetailControllerDelegate?
     
     lazy var collectionViewDataSource: SearchDetailCollectionViewDataSource = {
-       return SearchDetailCollectionViewDataSource(venue: self.venue!, client: self.client!)
+       return SearchDetailCollectionViewDataSource(venue: self.searchVenue!, client: self.client!)
     }()
     
     // MARK: - Lifecycle
@@ -33,7 +38,7 @@ class SearchDetailController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
         venuePhotoCollectionView.dataSource = collectionViewDataSource
-        if let venue = venue, let client = client {
+        if let venue = searchVenue, let client = client {
             activityIndicator.startAnimating()
             configure(withViewModel: SearchVenueViewModel(withVenue: venue))
             updateVenueDetails(forVenue: venue, client: client)
@@ -92,13 +97,15 @@ class SearchDetailController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func selectButtonPressed(_ sender: CustomUIButton) {
-        let addMealVC = storyboard?.instantiateViewController(withIdentifier: "AddMealController") as! AddMealController
-        addMealVC.searchVenue = venue
-        self.navigationController?.pushViewController(addMealVC, animated: true)
+        delegate?.searchDetailController(self, didSelect: searchVenue)
     }
     
     @IBAction func backButtonPressed(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        delegate?.searchDetailController(self, didSelect: nil)
     }
 }
 
