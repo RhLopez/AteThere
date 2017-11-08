@@ -23,8 +23,10 @@ class AddMealController: UIViewController {
     
     // MARK: - Properties
     var searchVenue: SearchVenue?
-    let realmService = RealmService()
+    var venueService: VenueServicing? = nil
     let fileManagerService = FileManagerService()
+
+    var completion: ((AddMealController) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +46,7 @@ class AddMealController: UIViewController {
     
     // MARK: - IBAction
     @IBAction func dismissButtonPressed(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        completion?(self)
     }
     
     @IBAction func addPictureButtonPressed(_ sender: UIButton) {
@@ -82,12 +84,13 @@ class AddMealController: UIViewController {
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         let meal = Meal(name: mealNameTextField.text!, date: Date(), rating: ratingControl.rating, comment: commentTextView.text)
         do {
-            try realmService.add(meal: meal, forVenue: searchVenue!)
+            try venueService?.add(meal: meal, forVenue: searchVenue!)
             fileManagerService.save(image: mealImage.image!, withPath: meal.photoPath)
         } catch {
             print(error)
         }
-        self.dismiss(animated: true, completion: nil)
+        
+        completion?(self)
     }
     
 }
@@ -135,7 +138,8 @@ extension AddMealController {
 extension AddMealController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            mealImage.image = image
+            let scaledImage = UIImage.scaleImageToSize(img: image, size: CGSize(width: 550, height: 750))
+            mealImage.image = scaledImage
         }
         
         dismiss(animated: true, completion: nil)
