@@ -20,4 +20,26 @@ class HomeViewController: UITableViewController {
             tableView.dataSource = dataSource
         }
     }
+    
+    @IBAction func addMealButtonPressed(_ sender: Any) {
+        let venuePicker = SearchVenuePickerController()
+        venuePicker.present(fromViewController: self) { [weak self] (venuePicker, searchVenue) in
+            self?.addMeal(forSearchVenue: searchVenue, withVenuePicker: venuePicker)
+        }
+    }
+    
+    func addMeal(forSearchVenue venue: SearchVenue, withVenuePicker venuePicker: SearchVenuePickerController) {
+        let addMealVC = storyboard?.instantiateViewController(withIdentifier: "AddMealController") as! AddMealController
+        addMealVC.searchVenue = venue
+        addMealVC.venueService = venueService
+        addMealVC.completion = { [weak self] _ in
+            if let venues = self?.venueService?.getVenues() {
+                self?.dataSource = HomeTableViewDataSource(withVenues: venues)
+                self?.tableView.dataSource = self?.dataSource
+                self?.tableView.reloadData()
+            }
+            venuePicker.dismiss()
+        }
+        venuePicker.searchNavigation?.setViewControllers([addMealVC], animated: true)
+    }
 }
