@@ -21,7 +21,7 @@ class HomeTableViewCell: UITableViewCell {
     
     var imageCache = NSCache<NSString,UIImage>()
     var fileManagerService = FileManagerService()
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         firstMealPhoto.layer.cornerRadius = 3
@@ -42,8 +42,7 @@ class HomeTableViewCell: UITableViewCell {
             } else {
                 fileManagerService.loadImage(withPath: photoPath, completion: { (image) in
                     if let image = image {
-                        UIView.transition(with: self.firstMealPhoto, duration: 0.3, options: .transitionCrossDissolve, animations: { self.firstMealPhoto.image = image }, completion: nil)
-                        self.firstMealPhoto.image = image
+                        UIView.transition(with: self.firstMealPhoto, duration: 0.2, options: .transitionCrossDissolve, animations: { self.firstMealPhoto.image = image }, completion: nil)
                         self.imageCache.setObject(image, forKey: photoPath as NSString)
                     }
                 })
