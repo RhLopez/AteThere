@@ -71,6 +71,7 @@ class RealmServiceTests: XCTestCase {
         let sut = RealmService(with: realm)
         let savedMeals = sut.getMeals(forVenue: testVenue)
         
+        XCTAssertEqual(savedMeals.count, 3)
     }
     
     private func venue(_ id: String, name: String) -> Venue {
