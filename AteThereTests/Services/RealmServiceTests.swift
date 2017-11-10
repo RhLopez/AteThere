@@ -51,6 +51,28 @@ class RealmServiceTests: XCTestCase {
         XCTAssertEqual(savedVenues[2].name, "Third")
     }
     
+    func test_getMeals_ReturnsSavedMeals() {
+        let testVenue = venue("123", name: "Test")
+        let firstMeal = Meal(name: "firstMeal", date: Date(), rating: 5, comment: "first")
+        let secondMeal = Meal(name: "seconMeal", date: Date(), rating: 5, comment: "second")
+        let thirdMeal = Meal(name: "thirdMeal", date: Date(), rating: 5, comment: "third")
+        let realm = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: "TestRealm"))
+        do {
+            try realm.write {
+                testVenue.meals.append(firstMeal)
+                testVenue.meals.append(secondMeal)
+                testVenue.meals.append(thirdMeal)
+                realm.add(testVenue)
+            }
+        } catch {
+            print(error)
+        }
+        
+        let sut = RealmService(with: realm)
+        let savedMeals = sut.getMeals(forVenue: testVenue)
+        
+    }
+    
     private func venue(_ id: String, name: String) -> Venue {
         let venue = Venue()
         venue.id = id
