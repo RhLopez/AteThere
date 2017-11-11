@@ -24,7 +24,7 @@ class HomeTableViewDataSourceTests: XCTestCase {
         let sut = HomeTableViewDataSource(withVenues: venues)
         let indexPath = IndexPath(row: 1, section: 0)
         let savedVenue = sut.venue(at: indexPath)
-        XCTAssertEqual(savedVenue, venues[1]) 
+        XCTAssertEqual(savedVenue, venues[1])
     }
 }
 
