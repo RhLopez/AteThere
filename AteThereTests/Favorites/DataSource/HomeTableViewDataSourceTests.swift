@@ -18,6 +18,13 @@ class HomeTableViewDataSourceTests: XCTestCase {
         let sut = HomeTableViewDataSource(withVenues: venues)
         XCTAssertEqual(sut.tableView(UITableView(), numberOfRowsInSection: 0), venues.count)
     }
+    
+    func test_DataSourceGetVenue_ReturnsVenueAtIndex() {
+        let venues: [Venue] = [venue("1", name: "First"), venue("2", name: "Second"), venue("3", name: "Third")]
+        let sut = HomeTableViewDataSource(withVenues: venues)
+        let indexPath = IndexPath(row: 1, section: 0)
+        let savedVenue = sut.venue(at: indexPath)
+    }
 }
 
 private func venue(_ id: String, name: String) -> Venue {
