@@ -10,7 +10,6 @@
 		7CF6ED12C7E8E5EF5873C6AA /* Pods_AteThere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE5FED27651AAF5CDE39C709 /* Pods_AteThere.framework */; };
 		CB2575486DF8DDD75BD1FECE /* Pods_AteThereTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FEC85348D4E7866417796B0 /* Pods_AteThereTests.framework */; };
 		DD0DAC0C1FB5693300C1A08A /* MealViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DAC0B1FB5693300C1A08A /* MealViewControllerTests.swift */; };
-		DD1164691FB19F230002DD2C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1164681FB19F230002DD2C /* ImageCache.swift */; };
 		DD13283E1F8C8C74009CD9BF /* SearchVenueTelephone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD13283D1F8C8C74009CD9BF /* SearchVenueTelephone.swift */; };
 		DD163A3E1F9C34FE00154687 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD163A3D1F9C34FE00154687 /* RatingControl.swift */; };
 		DD17C83D1F7F69D900521FD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD17C83C1F7F69D900521FD1 /* AppDelegate.swift */; };
@@ -82,7 +81,6 @@
 		671E1A38D9A311F89CE83389 /* Pods-AteThereTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AteThereTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AteThereTests/Pods-AteThereTests.release.xcconfig"; sourceTree = "<group>"; };
 		7E42627C0DEA2D228860620D /* Pods-AteThereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AteThereTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AteThereTests/Pods-AteThereTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD0DAC0B1FB5693300C1A08A /* MealViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewControllerTests.swift; sourceTree = "<group>"; };
-		DD1164681FB19F230002DD2C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		DD13283D1F8C8C74009CD9BF /* SearchVenueTelephone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenueTelephone.swift; sourceTree = "<group>"; };
 		DD163A3D1F9C34FE00154687 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		DD17C8391F7F69D900521FD1 /* AteThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AteThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,7 +236,6 @@
 				DD8BF41C1FA50A82002A011D /* RealmService.swift */,
 				DD8BF4241FA51849002A011D /* FileManagerService.swift */,
 				DDC98D071FA69B72001EE73C /* VenueService.swift */,
-				DD1164681FB19F230002DD2C /* ImageCache.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -673,7 +670,6 @@
 				DDBED94D1F81C3B200D7CB4C /* SearchController.swift in Sources */,
 				DD640B0F1F999A0900763C90 /* Meal.swift in Sources */,
 				DDC98D081FA69B72001EE73C /* VenueService.swift in Sources */,
-				DD1164691FB19F230002DD2C /* ImageCache.swift in Sources */,
 				DDC98D0F1FA6A228001EE73C /* HomeVenueViewModel.swift in Sources */,
 				DDBED9481F81A96400D7CB4C /* Endpoint.swift in Sources */,
 				DDB047671FB6A0D3000679D6 /* MealTableViewCell.swift in Sources */,
