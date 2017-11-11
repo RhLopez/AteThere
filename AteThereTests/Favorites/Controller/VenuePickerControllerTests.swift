@@ -13,8 +13,10 @@ class VenuePickerControllerTests: XCTestCase {
     
     func test_Present() {
         let sut = SearchVenuePickerController()
-        sut.present { searchVenue in
+        sut.present(fromViewController: UIViewController()) { searchVenue, _  in
             print(searchVenue)
+            
         }
     }
 }
+
