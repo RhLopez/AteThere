@@ -27,6 +27,10 @@ class HomeViewControllerTests: XCTestCase {
 }
 
 class VenueServiceMock: VenueServicing {
+    func add(meal: Meal, forVenue searchVenue: SearchVenue) throws {
+        
+    }
+    
     let venues: [Venue]
     
     init(withVenues venues: [Venue]) {
@@ -35,6 +39,11 @@ class VenueServiceMock: VenueServicing {
     
     func getVenues() -> [Venue] {
         return venues
+    }
+    
+    func getMeals(forVenue venue: Venue) -> [Meal] {
+        let meals: [Meal] = venues[0].meals.flatMap { $0 }
+        return meals
     }
 }
 
