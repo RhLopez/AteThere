@@ -43,3 +43,17 @@ class HomeViewController: UITableViewController {
         venuePicker.searchNavigation?.setViewControllers([addMealVC], animated: true)
     }
 }
+
+// MARK: - UITableViewContollerDelegate
+extension HomeViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let venue = dataSource?.venue(at: indexPath) {
+            if let mealVC = storyboard?.instantiateViewController(withIdentifier: "MealViewController") as? MealViewController {
+                mealVC.venue = venue
+                mealVC.venueServicing = venueService
+                navigationController?.pushViewController(mealVC, animated: true)
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+        }
+    }
+}
