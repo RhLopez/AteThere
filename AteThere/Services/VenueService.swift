@@ -10,4 +10,6 @@ import Foundation
 
 protocol VenueServicing {
     func getVenues() -> [Venue]
+    func add(meal: Meal, forVenue searchVenue: SearchVenue) throws
+    func getMeals(forVenue venue: Venue) -> [Meal]
 }
