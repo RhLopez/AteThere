@@ -17,21 +17,18 @@ class FileManagerService {
     }
     
     convenience init() {
-        let manager = FileManager.default
-        self.init(with: manager)
+        self.init(with: .default)
     }
     
     func save(image: UIImage, withPath path: String) {
-        let queue = DispatchQueue.global(qos: .background)
-        queue.async {
-            if let data = UIImagePNGRepresentation(image) {
-                let filename = self.getDocumentsDirectory().appendingPathComponent(path)
-                do {
-                    try data.write(to: filename)
-                } catch {
-                    DispatchQueue.main.async {
-                        print(error)
-                    }
+        if let data = UIImagePNGRepresentation(image) {
+            let filename = self.getDocumentsDirectory().appendingPathComponent(path)
+            do {
+                try data.write(to: filename)
+                print("fileSaved: \(filename)")
+            } catch {
+                DispatchQueue.main.async {
+                    print(error)
                 }
             }
         }
@@ -39,7 +36,6 @@ class FileManagerService {
     
     func loadImage(withPath path: String, completion: @escaping (UIImage?) -> Void) {
         var savedImage: UIImage?
-        
         let queue = DispatchQueue.global(qos: .userInitiated)
         queue.async {
             let directory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString
