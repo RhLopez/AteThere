@@ -30,7 +30,6 @@ class HomeTableViewCell: UITableViewCell {
     func configure(withViewModel viewModel: HomeVenueViewModel) {
         venueName.text = viewModel.name
         venueCategory.text = viewModel.category
-        firstMealPhoto.image = #imageLiteral(resourceName: "PlaceHolder")
         loadImage(forPath: viewModel.photoPath)
     }
     
