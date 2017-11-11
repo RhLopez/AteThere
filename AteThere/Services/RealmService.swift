@@ -50,12 +50,21 @@ class RealmService: VenueServicing {
         let venues: [Venue] = resultsVenue.map { $0 }
         return venues
     }
+    
+    func getMeals(forVenue venue: Venue) -> [Meal] {
+        if let savedVenue = realm.object(ofType: Venue.self, forPrimaryKey: venue.id) {
+            let results = savedVenue.meals
+            let meals: [Meal] = results.map { $0 }
+            return meals
+        }
+        return []
+    }
 }
 
 // Mark: - Helper Methods
 extension RealmService {
     private func getVenue(named venueName: String, withId id: String) -> Venue? {
-        if let venue = realm.objects(Venue.self).filter("name = %@", venueName).first, venue.id != id {
+        if let venue = realm.objects(Venue.self).filter("name = %@", venueName).first, venue.id == id {
             return venue
         } else {
             return nil
