@@ -38,3 +38,10 @@ extension HomeTableViewDataSource: UITableViewDataSource {
         }
     }
 }
+
+// MARK: - Helper Method
+extension HomeTableViewDataSource {
+    func venue(at indexPath: IndexPath) -> Venue {
+        return venues[indexPath.row]
+    }
+}
