@@ -24,7 +24,7 @@ class MealControllerDataSourceTests: XCTestCase {
         let meals = service.getMeals(forVenue: testVenue)
         
         let sut = MealControllerDataSource(withMeals: meals)
-        
+        XCTAssertEqual(sut.tableView(UITableView(), numberOfRowsInSection: 0), meals.count)
     }
 }
 
