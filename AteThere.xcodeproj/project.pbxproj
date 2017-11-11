@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7CF6ED12C7E8E5EF5873C6AA /* Pods_AteThere.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE5FED27651AAF5CDE39C709 /* Pods_AteThere.framework */; };
 		CB2575486DF8DDD75BD1FECE /* Pods_AteThereTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FEC85348D4E7866417796B0 /* Pods_AteThereTests.framework */; };
+		DD0DAC0C1FB5693300C1A08A /* MealViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0DAC0B1FB5693300C1A08A /* MealViewControllerTests.swift */; };
+		DD1164691FB19F230002DD2C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1164681FB19F230002DD2C /* ImageCache.swift */; };
 		DD13283E1F8C8C74009CD9BF /* SearchVenueTelephone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD13283D1F8C8C74009CD9BF /* SearchVenueTelephone.swift */; };
 		DD163A3E1F9C34FE00154687 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD163A3D1F9C34FE00154687 /* RatingControl.swift */; };
 		DD17C83D1F7F69D900521FD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD17C83C1F7F69D900521FD1 /* AppDelegate.swift */; };
@@ -20,7 +22,6 @@
 		DD26BEEC1F8321E7005E6AB0 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD26BEEB1F8321E7005E6AB0 /* APIClient.swift */; };
 		DD4AD60D1F8F4E6300077FA7 /* SearchVenueBestPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4AD60C1F8F4E6300077FA7 /* SearchVenueBestPhoto.swift */; };
 		DD601A031F8F4A31001341E2 /* SearchVenueCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD601A021F8F4A31001341E2 /* SearchVenueCategory.swift */; };
-		DD640B0D1F99964100763C90 /* MealDataStoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD640B0C1F99964100763C90 /* MealDataStoreTest.swift */; };
 		DD640B0F1F999A0900763C90 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD640B0E1F999A0900763C90 /* Meal.swift */; };
 		DD75AAE71F85BED200FB432B /* SearchVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75AAE61F85BED200FB432B /* SearchVenue.swift */; };
 		DD75AAE91F85BFE200FB432B /* FoursquareAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75AAE81F85BFE200FB432B /* FoursquareAPIClient.swift */; };
@@ -29,12 +30,17 @@
 		DD8793711F83507900995D48 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8793701F83507900995D48 /* APIError.swift */; };
 		DD8BF41D1FA50A82002A011D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8BF41C1FA50A82002A011D /* RealmService.swift */; };
 		DD8BF4251FA51849002A011D /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8BF4241FA51849002A011D /* FileManagerService.swift */; };
+		DD90E2351FB58A51001ABAA8 /* MealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD90E2341FB58A51001ABAA8 /* MealViewController.swift */; };
+		DD92DF221FAE79ED00752380 /* VenuePickerControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92DF211FAE79ED00752380 /* VenuePickerControllerTests.swift */; };
+		DD92DF241FAE7AAF00752380 /* SearchVenuePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD92DF231FAE7AAF00752380 /* SearchVenuePickerController.swift */; };
+		DD9329491FB03411008D81BB /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9329481FB03411008D81BB /* UIImage.swift */; };
 		DD9CAB781F89F97B00984038 /* SearchControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9CAB771F89F97B00984038 /* SearchControllerDataSource.swift */; };
 		DD9CAB7B1F89FEA400984038 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9CAB7A1F89FEA400984038 /* SearchTableViewCell.swift */; };
 		DD9F2AB21FA84C4700284C08 /* HomeTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F2AB11FA84C4700284C08 /* HomeTableViewDataSource.swift */; };
 		DD9F2AB71FA84D9600284C08 /* HomeTableViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F2AB61FA84D9600284C08 /* HomeTableViewDataSourceTests.swift */; };
 		DDA2451A1F91D55C00ABBFA8 /* SearchVenuePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA245191F91D55C00ABBFA8 /* SearchVenuePhoto.swift */; };
 		DDA2451C1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2451B1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift */; };
+		DDB047671FB6A0D3000679D6 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB047661FB6A0D3000679D6 /* MealTableViewCell.swift */; };
 		DDB84F871FA445800040E211 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB84F861FA445800040E211 /* Venue.swift */; };
 		DDB84F891FA46CFB0040E211 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB84F881FA46CFB0040E211 /* Location.swift */; };
 		DDBED9481F81A96400D7CB4C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBED9471F81A96400D7CB4C /* Endpoint.swift */; };
@@ -53,7 +59,10 @@
 		DDCFE0821FA6AEB300EACCBA /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFE0811FA6AEB300EACCBA /* HomeTableViewCell.swift */; };
 		DDD1FFAF1F92C96400FE4970 /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD1FFAE1F92C96400FE4970 /* CustomUIButton.swift */; };
 		DDE914D71F9425270035188E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE914D61F9425270035188E /* CustomTextField.swift */; };
+		DDEB1C041FB6950200650127 /* MealControllerDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEB1C031FB6950200650127 /* MealControllerDataSourceTests.swift */; };
+		DDEB1C061FB6981D00650127 /* MealControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEB1C051FB6981D00650127 /* MealControllerDataSource.swift */; };
 		DDF029691F8A0D5900FE99DE /* SearchVenueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF029681F8A0D5900FE99DE /* SearchVenueViewModel.swift */; };
+		DDFC1BBA1FB6C34F009AB7DA /* MealControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFC1BB91FB6C34F009AB7DA /* MealControllerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +81,8 @@
 		445638882D06AE778764CB1D /* Pods-AteThere.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AteThere.release.xcconfig"; path = "Pods/Target Support Files/Pods-AteThere/Pods-AteThere.release.xcconfig"; sourceTree = "<group>"; };
 		671E1A38D9A311F89CE83389 /* Pods-AteThereTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AteThereTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AteThereTests/Pods-AteThereTests.release.xcconfig"; sourceTree = "<group>"; };
 		7E42627C0DEA2D228860620D /* Pods-AteThereTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AteThereTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AteThereTests/Pods-AteThereTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DD0DAC0B1FB5693300C1A08A /* MealViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewControllerTests.swift; sourceTree = "<group>"; };
+		DD1164681FB19F230002DD2C /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		DD13283D1F8C8C74009CD9BF /* SearchVenueTelephone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenueTelephone.swift; sourceTree = "<group>"; };
 		DD163A3D1F9C34FE00154687 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		DD17C8391F7F69D900521FD1 /* AteThere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AteThere.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +98,6 @@
 		DD601A021F8F4A31001341E2 /* SearchVenueCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenueCategory.swift; sourceTree = "<group>"; };
 		DD640B021F9993E500763C90 /* AteThereTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AteThereTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD640B061F9993E500763C90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DD640B0C1F99964100763C90 /* MealDataStoreTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDataStoreTest.swift; sourceTree = "<group>"; };
 		DD640B0E1F999A0900763C90 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		DD75AAE61F85BED200FB432B /* SearchVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenue.swift; sourceTree = "<group>"; };
 		DD75AAE81F85BFE200FB432B /* FoursquareAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPIClient.swift; sourceTree = "<group>"; };
@@ -96,12 +106,17 @@
 		DD8793701F83507900995D48 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		DD8BF41C1FA50A82002A011D /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		DD8BF4241FA51849002A011D /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
+		DD90E2341FB58A51001ABAA8 /* MealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewController.swift; sourceTree = "<group>"; };
+		DD92DF211FAE79ED00752380 /* VenuePickerControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuePickerControllerTests.swift; sourceTree = "<group>"; };
+		DD92DF231FAE7AAF00752380 /* SearchVenuePickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenuePickerController.swift; sourceTree = "<group>"; };
+		DD9329481FB03411008D81BB /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		DD9CAB771F89F97B00984038 /* SearchControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchControllerDataSource.swift; sourceTree = "<group>"; };
 		DD9CAB7A1F89FEA400984038 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		DD9F2AB11FA84C4700284C08 /* HomeTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDataSource.swift; sourceTree = "<group>"; };
 		DD9F2AB61FA84D9600284C08 /* HomeTableViewDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDataSourceTests.swift; sourceTree = "<group>"; };
 		DDA245191F91D55C00ABBFA8 /* SearchVenuePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenuePhoto.swift; sourceTree = "<group>"; };
 		DDA2451B1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDB047661FB6A0D3000679D6 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 		DDB84F861FA445800040E211 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		DDB84F881FA46CFB0040E211 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DDBED9471F81A96400D7CB4C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -120,7 +135,10 @@
 		DDCFE0811FA6AEB300EACCBA /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		DDD1FFAE1F92C96400FE4970 /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
 		DDE914D61F9425270035188E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		DDEB1C031FB6950200650127 /* MealControllerDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealControllerDataSourceTests.swift; sourceTree = "<group>"; };
+		DDEB1C051FB6981D00650127 /* MealControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealControllerDataSource.swift; sourceTree = "<group>"; };
 		DDF029681F8A0D5900FE99DE /* SearchVenueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenueViewModel.swift; sourceTree = "<group>"; };
+		DDFC1BB91FB6C34F009AB7DA /* MealControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealControllerViewModel.swift; sourceTree = "<group>"; };
 		EE5FED27651AAF5CDE39C709 /* Pods_AteThere.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AteThere.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -188,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				DD640B101F999A3400763C90 /* Services */,
+				DD9329471FB03192008D81BB /* Extension */,
 				DDD1FFAD1F92C90B00FE4970 /* Subclasses */,
 				DD75AAE51F85BEBA00FB432B /* Models */,
 				DDBED94B1F81C14F00D7CB4C /* Search */,
@@ -219,6 +238,7 @@
 				DD8BF41C1FA50A82002A011D /* RealmService.swift */,
 				DD8BF4241FA51849002A011D /* FileManagerService.swift */,
 				DDC98D071FA69B72001EE73C /* VenueService.swift */,
+				DD1164681FB19F230002DD2C /* ImageCache.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -230,6 +250,14 @@
 				DDA022D71FA309FB00250D68 /* Realm Models */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		DD9329471FB03192008D81BB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DD9329481FB03411008D81BB /* UIImage.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		DD9CAB791F89FE6400984038 /* Controller */ = {
@@ -255,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				DD9F2AB61FA84D9600284C08 /* HomeTableViewDataSourceTests.swift */,
+				DDEB1C031FB6950200650127 /* MealControllerDataSourceTests.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -321,7 +350,9 @@
 		DDC0898F1F9DC7180034D00D /* Contoller */ = {
 			isa = PBXGroup;
 			children = (
+				DD92DF231FAE7AAF00752380 /* SearchVenuePickerController.swift */,
 				DDC98D011FA68C38001EE73C /* HomeViewController.swift */,
+				DD90E2341FB58A51001ABAA8 /* MealViewController.swift */,
 			);
 			path = Contoller;
 			sourceTree = "<group>";
@@ -330,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				DDCFE0811FA6AEB300EACCBA /* HomeTableViewCell.swift */,
+				DDB047661FB6A0D3000679D6 /* MealTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -338,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC98D0E1FA6A228001EE73C /* HomeVenueViewModel.swift */,
+				DDFC1BB91FB6C34F009AB7DA /* MealControllerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -354,7 +387,6 @@
 		DDC98D051FA68D1F001EE73C /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				DD640B0C1F99964100763C90 /* MealDataStoreTest.swift */,
 				DDC98D031FA68CF4001EE73C /* RealmServiceTests.swift */,
 			);
 			path = Services;
@@ -374,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				DD9F2AB11FA84C4700284C08 /* HomeTableViewDataSource.swift */,
+				DDEB1C051FB6981D00650127 /* MealControllerDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -391,6 +424,8 @@
 			isa = PBXGroup;
 			children = (
 				DDC98CFF1FA68AFA001EE73C /* HomeViewControllerTests.swift */,
+				DD92DF211FAE79ED00752380 /* VenuePickerControllerTests.swift */,
+				DD0DAC0B1FB5693300C1A08A /* MealViewControllerTests.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -638,19 +673,26 @@
 				DDBED94D1F81C3B200D7CB4C /* SearchController.swift in Sources */,
 				DD640B0F1F999A0900763C90 /* Meal.swift in Sources */,
 				DDC98D081FA69B72001EE73C /* VenueService.swift in Sources */,
+				DD1164691FB19F230002DD2C /* ImageCache.swift in Sources */,
 				DDC98D0F1FA6A228001EE73C /* HomeVenueViewModel.swift in Sources */,
 				DDBED9481F81A96400D7CB4C /* Endpoint.swift in Sources */,
+				DDB047671FB6A0D3000679D6 /* MealTableViewCell.swift in Sources */,
 				DDD1FFAF1F92C96400FE4970 /* CustomUIButton.swift in Sources */,
+				DDFC1BBA1FB6C34F009AB7DA /* MealControllerViewModel.swift in Sources */,
 				DD75AAE91F85BFE200FB432B /* FoursquareAPIClient.swift in Sources */,
 				DDCFE0821FA6AEB300EACCBA /* HomeTableViewCell.swift in Sources */,
 				DD13283E1F8C8C74009CD9BF /* SearchVenueTelephone.swift in Sources */,
+				DD90E2351FB58A51001ABAA8 /* MealViewController.swift in Sources */,
 				DD9CAB7B1F89FEA400984038 /* SearchTableViewCell.swift in Sources */,
+				DD92DF241FAE7AAF00752380 /* SearchVenuePickerController.swift in Sources */,
 				DD7FD5031F94110800541E44 /* AddMealController.swift in Sources */,
+				DDEB1C061FB6981D00650127 /* MealControllerDataSource.swift in Sources */,
 				DD8BF4251FA51849002A011D /* FileManagerService.swift in Sources */,
 				DDC7855A1F8B55AA00A0EF0C /* SearchLocation.swift in Sources */,
 				DD8BF41D1FA50A82002A011D /* RealmService.swift in Sources */,
 				DD9CAB781F89F97B00984038 /* SearchControllerDataSource.swift in Sources */,
 				DD17C83D1F7F69D900521FD1 /* AppDelegate.swift in Sources */,
+				DD9329491FB03411008D81BB /* UIImage.swift in Sources */,
 				DD1B7D131F8DAF65007C8B77 /* APIKey.swift in Sources */,
 				DDA2451A1F91D55C00ABBFA8 /* SearchVenuePhoto.swift in Sources */,
 				DDC98D111FA6A957001EE73C /* AteThereRootNavigationController.swift in Sources */,
@@ -672,11 +714,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD92DF221FAE79ED00752380 /* VenuePickerControllerTests.swift in Sources */,
+				DDEB1C041FB6950200650127 /* MealControllerDataSourceTests.swift in Sources */,
 				DDC98D041FA68CF4001EE73C /* RealmServiceTests.swift in Sources */,
-				DD640B0D1F99964100763C90 /* MealDataStoreTest.swift in Sources */,
 				DD9F2AB71FA84D9600284C08 /* HomeTableViewDataSourceTests.swift in Sources */,
 				DDC98D001FA68AFA001EE73C /* HomeViewControllerTests.swift in Sources */,
 				DDC98D0D1FA6A095001EE73C /* HomeViewModelTests.swift in Sources */,
+				DD0DAC0C1FB5693300C1A08A /* MealViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
