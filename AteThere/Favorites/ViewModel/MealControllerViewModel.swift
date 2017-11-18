@@ -21,7 +21,7 @@ struct MealControllerViewModel {
     
     var date: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "MMMM d, yyyy"
+        formatter.dateFormat = "MMM d, yyyy"
         return formatter.string(from: meal.date)
     }
     
