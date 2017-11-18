@@ -25,7 +25,6 @@ class FileManagerService {
             let filename = self.getDocumentsDirectory().appendingPathComponent(path)
             do {
                 try data.write(to: filename)
-                print("fileSaved: \(filename)")
             } catch {
                 DispatchQueue.main.async {
                     print(error)
