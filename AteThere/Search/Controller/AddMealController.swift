@@ -25,6 +25,8 @@ class AddMealController: UIViewController {
     var searchVenue: SearchVenue?
     var venueService: VenueServicing? = nil
     let fileManagerService = FileManagerService()
+    let picker = UIDatePicker()
+    var mealDate = Date()
 
     var completion: ((AddMealController) -> Void)?
     
@@ -33,6 +35,7 @@ class AddMealController: UIViewController {
         configureScrollView()
         registerKeyboardNotifications()
         setTextFieldDelegates()
+        createDatePicker()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,7 +85,7 @@ class AddMealController: UIViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        let meal = Meal(name: mealNameTextField.text!, date: Date(), rating: ratingControl.rating, comment: commentTextView.text)
+        let meal = Meal(name: mealNameTextField.text!, date: mealDate, rating: ratingControl.rating, comment: commentTextView.text)
         do {
             try venueService?.add(meal: meal, forVenue: searchVenue!)
             fileManagerService.save(image: mealImage.image!, withPath: meal.photoPath)
@@ -113,6 +116,35 @@ extension AddMealController {
         commentTextView.delegate = self
     }
     
+    func createDatePicker() {
+        dateTextField.inputView = picker
+        picker.datePickerMode = .date
+        
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        toolbar.backgroundColor = .lightGray
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(datePickerDoneButtonPressed))
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(datePickerCancelButtonPressed))
+        toolbar.setItems([doneButton, space, cancelButton], animated: false)
+        dateTextField.inputAccessoryView = toolbar
+    }
+    
+    @objc func datePickerDoneButtonPressed() {
+        mealDate = picker.date
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeZone = .none
+        let dateString = formatter.string(from: picker.date)
+        dateTextField.text = dateString
+        self.view.endEditing(true)
+    }
+    
+    @objc func datePickerCancelButtonPressed() {
+        self.view.endEditing(true)
+    }
+    
     func showNoCameraMessage() {
         let alertController = UIAlertController(title: "Alert", message: "Camera is not available on this device", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -138,8 +170,12 @@ extension AddMealController {
 extension AddMealController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            let scaledImage = UIImage.scaleImageToSize(img: image, size: CGSize(width: 550, height: 750))
-            mealImage.image = scaledImage
+            if picker.sourceType == .camera {
+                let scaledImage = UIImage.scaleImageToSize(img: image, size: CGSize(width: 550, height: 750))
+                mealImage.image = scaledImage
+            } else {
+                mealImage.image = image
+            }
         }
         
         dismiss(animated: true, completion: nil)
