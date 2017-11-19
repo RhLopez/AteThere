@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MealViewController: UITableViewController {
+class MealViewController: UICollectionViewController {
     
     // MARK: - Properties
     var venue: Venue?
@@ -22,7 +22,7 @@ class MealViewController: UITableViewController {
         title = venue.name
         if let meals = venueServicing?.getMeals(forVenue: venue) {
             dataSource = MealControllerDataSource(withMeals: meals)
-            tableView.dataSource = dataSource
+            collectionView?.dataSource = dataSource
         }
     }
 }
