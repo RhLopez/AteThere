@@ -39,7 +39,7 @@
 		DD9F2AB71FA84D9600284C08 /* HomeTableViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F2AB61FA84D9600284C08 /* HomeTableViewDataSourceTests.swift */; };
 		DDA2451A1F91D55C00ABBFA8 /* SearchVenuePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA245191F91D55C00ABBFA8 /* SearchVenuePhoto.swift */; };
 		DDA2451C1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2451B1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift */; };
-		DDB047671FB6A0D3000679D6 /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB047661FB6A0D3000679D6 /* MealTableViewCell.swift */; };
+		DDB047671FB6A0D3000679D6 /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB047661FB6A0D3000679D6 /* MealCollectionViewCell.swift */; };
 		DDB84F871FA445800040E211 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB84F861FA445800040E211 /* Venue.swift */; };
 		DDB84F891FA46CFB0040E211 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB84F881FA46CFB0040E211 /* Location.swift */; };
 		DDBED9481F81A96400D7CB4C /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBED9471F81A96400D7CB4C /* Endpoint.swift */; };
@@ -114,7 +114,7 @@
 		DD9F2AB61FA84D9600284C08 /* HomeTableViewDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDataSourceTests.swift; sourceTree = "<group>"; };
 		DDA245191F91D55C00ABBFA8 /* SearchVenuePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenuePhoto.swift; sourceTree = "<group>"; };
 		DDA2451B1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailCollectionViewCell.swift; sourceTree = "<group>"; };
-		DDB047661FB6A0D3000679D6 /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		DDB047661FB6A0D3000679D6 /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDB84F861FA445800040E211 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		DDB84F881FA46CFB0040E211 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DDBED9471F81A96400D7CB4C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
@@ -358,7 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				DDCFE0811FA6AEB300EACCBA /* HomeTableViewCell.swift */,
-				DDB047661FB6A0D3000679D6 /* MealTableViewCell.swift */,
+				DDB047661FB6A0D3000679D6 /* MealCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -672,7 +672,7 @@
 				DDC98D081FA69B72001EE73C /* VenueService.swift in Sources */,
 				DDC98D0F1FA6A228001EE73C /* HomeVenueViewModel.swift in Sources */,
 				DDBED9481F81A96400D7CB4C /* Endpoint.swift in Sources */,
-				DDB047671FB6A0D3000679D6 /* MealTableViewCell.swift in Sources */,
+				DDB047671FB6A0D3000679D6 /* MealCollectionViewCell.swift in Sources */,
 				DDD1FFAF1F92C96400FE4970 /* CustomUIButton.swift in Sources */,
 				DDFC1BBA1FB6C34F009AB7DA /* MealControllerViewModel.swift in Sources */,
 				DD75AAE91F85BFE200FB432B /* FoursquareAPIClient.swift in Sources */,
