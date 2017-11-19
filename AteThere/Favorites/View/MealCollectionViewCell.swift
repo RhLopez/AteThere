@@ -1,5 +1,5 @@
 //
-//  MealTableViewCell.swift
+//  MealCollectionViewCell.swift
 //  AteThere
 //
 //  Created by Ramiro H Lopez on 11/10/17.
@@ -8,15 +8,14 @@
 
 import UIKit
 
-class MealTableViewCell: UITableViewCell {
+class MealCollectionViewCell: UICollectionViewCell {
 
     // MARK: - IBOutlets
     @IBOutlet weak var mealImageView: UIImageView!
     @IBOutlet weak var mealNameLabel: UILabel!
-    @IBOutlet weak var mealDateLabel: UILabel!
     
     static var identifier: String {
-        return String(describing: MealTableViewCell.self)
+        return String(describing: MealCollectionViewCell.self)
     }
     
     var imageCache = NSCache<NSString,UIImage>()
@@ -29,7 +28,6 @@ class MealTableViewCell: UITableViewCell {
     
     func configure(withViewModel viewModel: MealControllerViewModel) {
         mealNameLabel.text = viewModel.name
-        mealDateLabel.text = viewModel.date
         loadImage(forPath: viewModel.photoPath)
     }
 
