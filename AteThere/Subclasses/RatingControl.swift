@@ -47,7 +47,7 @@ class RatingControl: UIStackView {
             
             button.addTarget(self, action: #selector(buttonTapped(button:)), for: .touchUpInside)
             
-            let empty = UIImage(named: "emptyStar")
+            let empty = UIImage(named: "grayStar")
             let highlighted = UIImage(named: "highlightedStar")
             let filled = UIImage(named: "filledStar")
             
