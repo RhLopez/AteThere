@@ -17,28 +17,6 @@ class MealControllerDataSource: NSObject {
     }
 }
 
-//// MARK: - UITableViewDataSource
-//extension MealControllerDataSource: UITableViewDataSource {
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return meals.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: MealTableViewCell.identifier, for: indexPath) as? MealTableViewCell {
-//            let meal = meals[indexPath.row]
-//            cell.configure(withViewModel: MealControllerViewModel(withMeal: meal))
-//
-//            return cell
-//        } else {
-//            return UITableViewCell()
-//        }
-//    }
-//}
-
 // MARK: - UICollectionViewDataSource
 extension MealControllerDataSource: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -58,5 +36,12 @@ extension MealControllerDataSource: UICollectionViewDataSource {
         } else {
             return UICollectionViewCell()
         }
+    }
+}
+
+// MARK: - Helper methods
+extension MealControllerDataSource {
+    func meal(at indexPath: IndexPath) -> Meal {
+        return meals[indexPath.row]
     }
 }
