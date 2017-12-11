@@ -25,6 +25,9 @@
 		DD75AAE71F85BED200FB432B /* SearchVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75AAE61F85BED200FB432B /* SearchVenue.swift */; };
 		DD75AAE91F85BFE200FB432B /* FoursquareAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75AAE81F85BFE200FB432B /* FoursquareAPIClient.swift */; };
 		DD75AAEB1F85C4FA00FB432B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD75AAEA1F85C4FA00FB432B /* Result.swift */; };
+		DD7E31B81FC379D800431B0F /* MealDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E31B71FC379D800431B0F /* MealDetailController.swift */; };
+		DD7E31BA1FC37B2200431B0F /* MealDetailControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E31B91FC37B2200431B0F /* MealDetailControllerViewModel.swift */; };
+		DD7E31BC1FC39ACC00431B0F /* ExpandAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E31BB1FC39ACC00431B0F /* ExpandAnimator.swift */; };
 		DD7FD5031F94110800541E44 /* AddMealController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7FD5021F94110800541E44 /* AddMealController.swift */; };
 		DD8793711F83507900995D48 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8793701F83507900995D48 /* APIError.swift */; };
 		DD8BF41D1FA50A82002A011D /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8BF41C1FA50A82002A011D /* RealmService.swift */; };
@@ -39,6 +42,7 @@
 		DD9F2AB71FA84D9600284C08 /* HomeTableViewDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9F2AB61FA84D9600284C08 /* HomeTableViewDataSourceTests.swift */; };
 		DDA2451A1F91D55C00ABBFA8 /* SearchVenuePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA245191F91D55C00ABBFA8 /* SearchVenuePhoto.swift */; };
 		DDA2451C1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA2451B1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift */; };
+		DDABB0F91FDC956900EDFF86 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDABB0F81FDC956900EDFF86 /* UIView.swift */; };
 		DDB047671FB6A0D3000679D6 /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB047661FB6A0D3000679D6 /* MealCollectionViewCell.swift */; };
 		DDB84F871FA445800040E211 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB84F861FA445800040E211 /* Venue.swift */; };
 		DDB84F891FA46CFB0040E211 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB84F881FA46CFB0040E211 /* Location.swift */; };
@@ -100,6 +104,9 @@
 		DD75AAE61F85BED200FB432B /* SearchVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenue.swift; sourceTree = "<group>"; };
 		DD75AAE81F85BFE200FB432B /* FoursquareAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPIClient.swift; sourceTree = "<group>"; };
 		DD75AAEA1F85C4FA00FB432B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		DD7E31B71FC379D800431B0F /* MealDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailController.swift; sourceTree = "<group>"; };
+		DD7E31B91FC37B2200431B0F /* MealDetailControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailControllerViewModel.swift; sourceTree = "<group>"; };
+		DD7E31BB1FC39ACC00431B0F /* ExpandAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandAnimator.swift; sourceTree = "<group>"; };
 		DD7FD5021F94110800541E44 /* AddMealController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealController.swift; sourceTree = "<group>"; };
 		DD8793701F83507900995D48 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		DD8BF41C1FA50A82002A011D /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
@@ -114,6 +121,7 @@
 		DD9F2AB61FA84D9600284C08 /* HomeTableViewDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDataSourceTests.swift; sourceTree = "<group>"; };
 		DDA245191F91D55C00ABBFA8 /* SearchVenuePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVenuePhoto.swift; sourceTree = "<group>"; };
 		DDA2451B1F91FAFA00ABBFA8 /* SearchDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDABB0F81FDC956900EDFF86 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		DDB047661FB6A0D3000679D6 /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDB84F861FA445800040E211 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		DDB84F881FA46CFB0040E211 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -253,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				DD9329481FB03411008D81BB /* UIImage.swift */,
+				DDABB0F81FDC956900EDFF86 /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -350,6 +359,7 @@
 				DD92DF231FAE7AAF00752380 /* SearchVenuePickerController.swift */,
 				DDC98D011FA68C38001EE73C /* HomeViewController.swift */,
 				DD90E2341FB58A51001ABAA8 /* MealViewController.swift */,
+				DD7E31B71FC379D800431B0F /* MealDetailController.swift */,
 			);
 			path = Contoller;
 			sourceTree = "<group>";
@@ -368,6 +378,7 @@
 			children = (
 				DDC98D0E1FA6A228001EE73C /* HomeVenueViewModel.swift */,
 				DDFC1BB91FB6C34F009AB7DA /* MealControllerViewModel.swift */,
+				DD7E31B91FC37B2200431B0F /* MealDetailControllerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -434,6 +445,7 @@
 				DDE914D61F9425270035188E /* CustomTextField.swift */,
 				DD187D041F9D3B3000E81A8C /* CustomTextView.swift */,
 				DD163A3D1F9C34FE00154687 /* RatingControl.swift */,
+				DD7E31BB1FC39ACC00431B0F /* ExpandAnimator.swift */,
 			);
 			path = Subclasses;
 			sourceTree = "<group>";
@@ -666,6 +678,7 @@
 				DDC785571F8B42B000A0EF0C /* SearchDetailController.swift in Sources */,
 				DD75AAEB1F85C4FA00FB432B /* Result.swift in Sources */,
 				DDC98D021FA68C38001EE73C /* HomeViewController.swift in Sources */,
+				DD7E31BC1FC39ACC00431B0F /* ExpandAnimator.swift in Sources */,
 				DD163A3E1F9C34FE00154687 /* RatingControl.swift in Sources */,
 				DDBED94D1F81C3B200D7CB4C /* SearchController.swift in Sources */,
 				DD640B0F1F999A0900763C90 /* Meal.swift in Sources */,
@@ -675,6 +688,7 @@
 				DDB047671FB6A0D3000679D6 /* MealCollectionViewCell.swift in Sources */,
 				DDD1FFAF1F92C96400FE4970 /* CustomUIButton.swift in Sources */,
 				DDFC1BBA1FB6C34F009AB7DA /* MealControllerViewModel.swift in Sources */,
+				DDABB0F91FDC956900EDFF86 /* UIView.swift in Sources */,
 				DD75AAE91F85BFE200FB432B /* FoursquareAPIClient.swift in Sources */,
 				DDCFE0821FA6AEB300EACCBA /* HomeTableViewCell.swift in Sources */,
 				DD13283E1F8C8C74009CD9BF /* SearchVenueTelephone.swift in Sources */,
@@ -686,11 +700,13 @@
 				DD8BF4251FA51849002A011D /* FileManagerService.swift in Sources */,
 				DDC7855A1F8B55AA00A0EF0C /* SearchLocation.swift in Sources */,
 				DD8BF41D1FA50A82002A011D /* RealmService.swift in Sources */,
+				DD7E31B81FC379D800431B0F /* MealDetailController.swift in Sources */,
 				DD9CAB781F89F97B00984038 /* SearchControllerDataSource.swift in Sources */,
 				DD17C83D1F7F69D900521FD1 /* AppDelegate.swift in Sources */,
 				DD9329491FB03411008D81BB /* UIImage.swift in Sources */,
 				DD1B7D131F8DAF65007C8B77 /* APIKey.swift in Sources */,
 				DDA2451A1F91D55C00ABBFA8 /* SearchVenuePhoto.swift in Sources */,
+				DD7E31BA1FC37B2200431B0F /* MealDetailControllerViewModel.swift in Sources */,
 				DDC98D111FA6A957001EE73C /* AteThereRootNavigationController.swift in Sources */,
 				DD187D051F9D3B3000E81A8C /* CustomTextView.swift in Sources */,
 				DD601A031F8F4A31001341E2 /* SearchVenueCategory.swift in Sources */,
