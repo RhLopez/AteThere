@@ -12,12 +12,38 @@ class HomeViewController: UITableViewController {
     
     var venueService: VenueServicing?
     var dataSource: HomeTableViewDataSource?
+    private var token: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let venues = venueService?.getVenues() {
             dataSource = HomeTableViewDataSource(withVenues: venues)
             tableView.dataSource = dataSource
+            token = venueService?.observe { [weak self] venueService, venueChanges in
+                let venues = venueService.getVenues()
+                self?.dataSource?.venues = venues
+                switch venueChanges {
+                case .initial:
+                    self?.tableView.reloadData()
+                case .update(let deletions, let insertions, let modifications):
+                    self?.tableView.beginUpdates()
+                    self?.tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }),
+                                               with: .automatic)
+                    self?.tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}),
+                                               with: .automatic)
+                    self?.tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }),
+                                               with: .automatic)
+                    self?.tableView.endUpdates()
+                case .error:
+                    fatalError("Internal error")
+                }
+            }
+        }
+    }
+    
+    deinit {
+        if let token = token {
+            venueService?.stopObserving(token: token)
         }
     }
     
@@ -32,12 +58,7 @@ class HomeViewController: UITableViewController {
         let addMealVC = storyboard?.instantiateViewController(withIdentifier: "AddMealController") as! AddMealController
         addMealVC.searchVenue = venue
         addMealVC.venueService = venueService
-        addMealVC.completion = { [weak self] _ in
-            if let venues = self?.venueService?.getVenues() {
-                self?.dataSource = HomeTableViewDataSource(withVenues: venues)
-                self?.tableView.dataSource = self?.dataSource
-                self?.tableView.reloadData()
-            }
+        addMealVC.completion = { _ in
             venuePicker.dismiss()
         }
         venuePicker.searchNavigation?.setViewControllers([addMealVC], animated: true)
