@@ -16,6 +16,7 @@ enum RealmServiceError: Error {
 class RealmService: VenueServicing {
     
     private var realm: Realm
+    private var notificationToken: NotificationToken? = nil
     
     init(with realm: Realm) {
         self.realm = realm
@@ -58,6 +59,33 @@ class RealmService: VenueServicing {
             return meals
         }
         return []
+    }
+    
+    func observe(changes: @escaping (VenueServicing, VenueChanges) -> Void) -> String {
+        let results = realm.objects(Venue.self).sorted(byKeyPath: "name")
+        
+        notificationToken = results.observe({ [weak self] (realmChanges) in
+            guard let strongSelf = self else { return }
+            
+            switch realmChanges {
+            case .initial(_):
+                changes(strongSelf, .initial)
+            case .update(_, deletions: let deletions, insertions: let insertions, modifications: let modifications):
+                changes(strongSelf, .update(deletions: deletions, insertions: insertions, modifications: modifications))
+            case .error(_):
+                changes(strongSelf, .error)
+            }
+        })
+        return "token"
+    }
+    
+    func stopObserving(token: String) {
+        notificationToken?.invalidate()
+        notificationToken = nil
+    }
+    
+    deinit {
+        notificationToken?.invalidate()
     }
 }
 
