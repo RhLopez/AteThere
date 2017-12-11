@@ -11,7 +11,7 @@ import UIKit
 
 class HomeTableViewDataSource: NSObject {
     
-    private var venues: [Venue]
+    public var venues: [Venue]
     
     init(withVenues venues: [Venue]) {
         self.venues = venues
