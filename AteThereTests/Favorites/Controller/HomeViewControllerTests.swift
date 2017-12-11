@@ -27,6 +27,14 @@ class HomeViewControllerTests: XCTestCase {
 }
 
 class VenueServiceMock: VenueServicing {
+    func observe(changes: @escaping (VenueServicing, VenueChanges) -> Void) -> String {
+        return ""
+    }
+    
+    func stopObserving(token: String) {
+        
+    }
+    
     func add(meal: Meal, forVenue searchVenue: SearchVenue) throws {
         
     }
