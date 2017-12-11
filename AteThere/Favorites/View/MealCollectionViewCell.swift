@@ -22,8 +22,8 @@ class MealCollectionViewCell: UICollectionViewCell {
     var fileManagerService = FileManagerService()
     
     override func layoutSubviews() {
-        super.layoutSubviews()
-        mealImageView.layer.cornerRadius = 3
+        super.layoutSubviews()        
+        self.layer.cornerRadius = 6
     }
     
     func configure(withViewModel viewModel: MealControllerViewModel) {
@@ -39,7 +39,7 @@ class MealCollectionViewCell: UICollectionViewCell {
             } else {
                 fileManagerService.loadImage(withPath: photoPath, completion: { (image) in
                     if let image = image {
-                        UIView.transition(with: self.mealImageView, duration: 0.2, options: .transitionCrossDissolve, animations: { self.mealImageView.image = image }, completion: nil)
+                        self.mealImageView.image = image
                         self.imageCache.setObject(image, forKey: photoPath as NSString)
                     }
                 })
