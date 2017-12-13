@@ -105,6 +105,53 @@ class RealmServiceTests: XCTestCase {
         XCTAssertEqual(savedMeals[2].name, "thirdMeal")
     }
     
+    func test_deleteVenue_RemovesVenueFromRealm() {
+        let testVenueOne = venue("123", name: "TestOne")
+        let testVenueTwo = venue("456", name: "TestTwo")
+        let testVenueThree = venue("789", name: "TestThree")
+        
+        let realm  = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: "TestRealm"))
+        
+        do {
+            try realm.write {
+                realm.add(testVenueOne)
+                realm.add(testVenueTwo)
+                realm.add(testVenueThree)
+            }
+        } catch {
+            print(error)
+        }
+        
+        let sut = RealmService(with: realm)
+        sut.deleteVenue(id: "123")
+        let savedVenues = sut.getVenues()
+        
+        XCTAssertEqual(savedVenues.count, 2)
+    }
+    
+    func test_deleteVenueAndMeals_RemovesMealsAndVenueFromRealm() {
+        let testVenueOne = venue("123", name: "TestOne")
+        let testMealOne = Meal(name: "testMealOne", date: Date(), rating: 5, comment: "TestMealOne")
+        let testMealTwo = Meal(name: "testMealTwo", date: Date(), rating: 4, comment: "TestMealTwo")
+        
+        let realm = try! Realm(configuration: Realm.Configuration(inMemoryIdentifier: "TestRealm"))
+        do {
+            try realm.write {
+                testVenueOne.meals.append(testMealOne)
+                testVenueOne.meals.append(testMealTwo)
+                realm.add(testVenueOne)
+            }
+        } catch {
+            print(error)
+        }
+        
+        let sut = RealmService(with: realm)
+        sut.deleteVenue(id: "123")
+        let savedVenues = sut.getVenues()
+        
+        XCTAssertEqual(savedVenues.count, 0)
+    }
+    
     private func venue(_ id: String, name: String) -> Venue {
         let venue = Venue()
         venue.id = id
