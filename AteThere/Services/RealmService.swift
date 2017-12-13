@@ -61,6 +61,15 @@ class RealmService: VenueServicing {
         return []
     }
     
+    func deleteVenue(id: String) {
+        if let venue = realm.object(ofType: Venue.self, forPrimaryKey: id) {
+            try! realm.write {
+                realm.delete(venue.meals)
+                realm.delete(venue)
+            }
+        }
+    }
+    
     func observe(changes: @escaping (VenueServicing, VenueChanges) -> Void) -> String {
         let results = realm.objects(Venue.self).sorted(byKeyPath: "name")
         
