@@ -10,6 +10,7 @@ import Foundation
 
 protocol VenueServicing {
     func getVenues() -> [Venue]
+    func deleteVenue(id: String)
     func add(meal: Meal, forVenue searchVenue: SearchVenue) throws
     func getMeals(forVenue venue: Venue) -> [Meal]
     func observe(changes: @escaping (VenueServicing, VenueChanges) -> Void) -> String
