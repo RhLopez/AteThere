@@ -65,6 +65,7 @@ class RealmService: VenueServicing {
         if let venue = realm.object(ofType: Venue.self, forPrimaryKey: id) {
             try! realm.write {
                 realm.delete(venue.meals)
+                realm.delete(venue.locations)
                 realm.delete(venue)
             }
         }
