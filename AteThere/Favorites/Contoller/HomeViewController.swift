@@ -77,4 +77,18 @@ extension HomeViewController {
             }
         }
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { [weak self] (action, indexPath) in
+            if let venue = self?.dataSource?.venue(at: indexPath) {
+                self?.venueService?.deleteVenue(id: venue.id)
+            }
+        }
+        
+        return [deleteAction]
+    }
 }
