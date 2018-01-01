@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UITableViewController {
     
     var venueService: VenueServicing?
+    var locationManager: LocationManager?
     var dataSource: HomeTableViewDataSource?
     private var token: String?
     
@@ -48,9 +49,14 @@ class HomeViewController: UITableViewController {
     }
     
     @IBAction func addMealButtonPressed(_ sender: Any) {
-        let venuePicker = SearchVenuePickerController()
-        venuePicker.present(fromViewController: self) { [weak self] (venuePicker, searchVenue) in
-            self?.addMeal(forSearchVenue: searchVenue, withVenuePicker: venuePicker)
+        if locationManager!.checkForLocationServices() {
+            let venuePicker = SearchVenuePickerController()
+            venuePicker.locationManager = locationManager
+            venuePicker.present(fromViewController: self) { [weak self] (venuePicker, searchVenue) in
+                self?.addMeal(forSearchVenue: searchVenue, withVenuePicker: venuePicker)
+            }
+        } else {
+            showLocationServicesAlert()
         }
     }
     
@@ -62,6 +68,20 @@ class HomeViewController: UITableViewController {
             venuePicker.dismiss()
         }
         venuePicker.searchNavigation?.setViewControllers([addMealVC], animated: true)
+    }
+    
+    func showLocationServicesAlert() {
+        let alertController = UIAlertController(title: "Attention", message: "Unable to search. Please turn on Location Services.", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let openSettingAction = UIAlertAction(title: "Open Settings", style: .default, handler: { (action) in
+            if let url = URL(string: "App-Prefs:root=Privacy&path=LOCATION") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        })
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(openSettingAction)
+        present(alertController, animated: true, completion: nil)
     }
 }
 

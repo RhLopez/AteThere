@@ -15,10 +15,15 @@ class AteThereRootNavigationController: UINavigationController {
        return RealmService()
     }()
     
+    lazy var locationManager: LocationManager = {
+       return LocationManager()
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         if let rootVC = viewControllers[0] as? HomeViewController {
             rootVC.venueService = self.venueService
+            rootVC.locationManager = self.locationManager
         }
         
     }

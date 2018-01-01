@@ -14,6 +14,7 @@ class SearchVenuePickerController {
     private var ownReference: SearchVenuePickerController?
     private var completion: ((SearchVenuePickerController, SearchVenue) -> Void)?
     weak var searchNavigation: UINavigationController?
+    var locationManager: LocationManager?
     
     lazy var client: FoursquareAPIClient = {
         return FoursquareAPIClient(apiKey: FoursquareAPIKey())
@@ -27,6 +28,7 @@ class SearchVenuePickerController {
         let searchNavigation = storyboard.instantiateViewController(withIdentifier: "SearchNavigationContoller") as! UINavigationController
         self.searchNavigation = searchNavigation
         if let searchController = searchNavigation.viewControllers.first as? SearchController {
+            searchController.locationManager = locationManager
             searchController.client = client
             searchController.delegate = self
         }
