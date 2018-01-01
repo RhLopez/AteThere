@@ -49,6 +49,10 @@ class VenueServiceMock: VenueServicing {
         return venues
     }
     
+    func deleteVenue(id: String) {
+        
+    }
+    
     func getMeals(forVenue venue: Venue) -> [Meal] {
         let meals: [Meal] = venues[0].meals.flatMap { $0 }
         return meals
