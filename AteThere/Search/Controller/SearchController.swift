@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 protocol SearchControllerDelegate: class {
     func searchController(_ searchController: SearchController, didSelect searchVenue: SearchVenue?)
@@ -19,42 +20,126 @@ class SearchController: UITableViewController {
     let searchController = UISearchController(searchResultsController: nil)
     let dataSource = SearchControllerDataSource()
     var client: FoursquareAPIClient?
+    var locationManager: LocationManager?
+    private var lastSearchTerm: String?
     weak var delegate: SearchControllerDelegate?
+    let userDefaults = UserDefaults()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchController()
         tableView.dataSource = dataSource
+        checkLocationAuthorization()
+        locationManager?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        if let savedTerm = lastSearchTerm {
+            searchController.searchBar.text = savedTerm
+            searchController.isActive = true
+        }
+        
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        DispatchQueue.main.async {
-            self.searchController.searchBar.becomeFirstResponder()
+        if userDefaults.bool(forKey: "LocationAuthorized") {
+            DispatchQueue.main.async {
+                self.searchController.searchBar.becomeFirstResponder()
+            }
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+        lastSearchTerm = searchController.searchBar.text
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         searchController.isActive = false
     }
     
+    func checkLocationAuthorization() {
+        do {
+            try locationManager?.requestLocationAuthorization()
+        } catch {
+            showLocationDeniedMessage()
+        }
+    }
+    
     func setupSearchController() {
-        self.navigationItem.titleView = searchController.searchBar
+        navigationItem.titleView = searchController.searchBar
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
 
         let textfield = self.searchController.searchBar.value(forKey: "searchField") as! UITextField
         textfield.tintColor = .black
+    }
+    
+    func showLocationDeniedMessage() {
+        let alertController = UIAlertController(title: "Attention", message: "In order to search your location is needed.", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        })
+        
+        let openSettingAction = UIAlertAction(title: "Open Settings", style: .default, handler: { _ in
+            guard let bundleIdentifier = Bundle.main.bundleIdentifier else { return }
+            if let url = URL(string: UIApplicationOpenSettingsURLString + bundleIdentifier) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+            self.dismiss(animated: true, completion: nil)
+        })
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(openSettingAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func showRestrictedLocationAccessMessage() {
+        let message = "Restricted Location Services access identified./nLocation Services needs to be turned on in order to use this application"
+        let alertController = UIAlertController(title: "Attention", message: message, preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: { _ in
+            self.dismiss(animated: true, completion: nil)
+        })
+        
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+// MARK: - LocationPermissionDelegate
+extension SearchController: LocationPermissionDelegate {
+    func authorizationSucceeded() {
+        DispatchQueue.main.async {
+            self.searchController.searchBar.becomeFirstResponder()
+        }
+        
+        userDefaults.set(true, forKey: "LocationAuthorized")
+    }
+    
+    func authorizationFailedWithStatus(_ error: LocationError) {
+        switch error {
+        case .deniedByUser:
+            showLocationDeniedMessage()
+        case .restrictedAccess:
+            showRestrictedLocationAccessMessage()
+        }
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension SearchController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchController.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -84,6 +169,8 @@ extension SearchController: UISearchResultsUpdating {
 extension SearchController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let searchVenue = dataSource.getVenue(forIndexPath: indexPath)
+        searchController.searchBar.resignFirstResponder()
         delegate?.searchController(self, didSelect: searchVenue)
+        
     }
 }
