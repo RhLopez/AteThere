@@ -9,14 +9,23 @@
 import Foundation
 import UIKit
 
-enum ImageState {
-    case downloaded
+enum ImageState: Equatable {
+    case downloaded(IndexedImage)
     case placeholder
+}
+
+func ==(lhs: ImageState, rhs: ImageState) -> Bool {
+    switch (lhs, rhs) {
+    case (.placeholder, .placeholder):
+        return true
+    default:
+        return false
+    }
 }
 
 struct SearchVenuePhoto {
     var imageUrl: String?
-    var image: UIImage?
+    var indexedImage: IndexedImage?
     var imageState = ImageState.placeholder
     
     init?(json: [String: AnyObject]) {
@@ -25,7 +34,7 @@ struct SearchVenuePhoto {
             let suffix = json[JSONKeys.suffix.description] as? String else { return nil }
         
         self.imageUrl = "\(prefix)250x250\(suffix)"
-        self.image = nil
+        self.indexedImage = nil
     }
 }
 

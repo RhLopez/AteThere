@@ -27,20 +27,16 @@ extension SearchDetailCollectionViewDataSource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchDetailCollectionViewCell.identifier, for: indexPath) as? SearchDetailCollectionViewCell {
-            
             cell.venueImageView.image = #imageLiteral(resourceName: "PlaceHolder")
+            let imageState = venue.photos[indexPath.row].imageState
             
-            if venue.photos[indexPath.row].imageState == .placeholder {
-                client.getPhoto(forVenue: venue, atIndexPath: indexPath, completion: { (result) in
-                    switch result {
-                    case .success(let venue):
-                        cell.updateCell(withImage: venue.photos[indexPath.row].image!)
-                    case .failure(_):
-                        return
-                    }
-                })
-            } else {
-                cell.updateCell(withImage: venue.photos[indexPath.row].image!)
+            switch imageState {
+            case .downloaded(let indexedImage):
+                if indexPath == indexedImage.indexPath {
+                    cell.updateCell(withImage: indexedImage.image)
+                }
+            case .placeholder:
+                downloadImage(for: cell, at: indexPath)
             }
             return cell
         } else {
@@ -53,5 +49,19 @@ extension SearchDetailCollectionViewDataSource: UICollectionViewDataSource {
 extension SearchDetailCollectionViewDataSource {
     func update(withPhotos photos: [SearchVenuePhoto]) {
         self.venue.photos = photos
+    }
+    
+    func downloadImage(for cell: SearchDetailCollectionViewCell, at indexPath: IndexPath) {
+        client.getPhoto(forVenue: venue, atIndexPath: indexPath, completion: { [weak cell] (result) in
+            switch result {
+            case .success(let indexedImage):
+                let imageIndex = indexedImage.indexPath
+                if indexPath == imageIndex {
+                    cell?.updateCell(withImage: indexedImage.image)
+                }
+            case .failure(_):
+                return
+            }
+        })
     }
 }

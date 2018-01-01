@@ -117,7 +117,7 @@ class FoursquareAPIClient: APIClient {
         task.resume()
     }
     
-    func getPhoto(forVenue venue: SearchVenue, atIndexPath indexPath: IndexPath, completion: @escaping (Result<SearchVenue, APIError>) -> Void) {
+    func getPhoto(forVenue venue: SearchVenue, atIndexPath indexPath: IndexPath, completion: @escaping (Result<IndexedImage, APIError>) -> Void) {
         guard let urlString = venue.photos[indexPath.row].imageUrl else {
             completion(.failure(.invalidURL))
             return
@@ -131,8 +131,9 @@ class FoursquareAPIClient: APIClient {
                 }
                 
                 if let image = UIImage(data: data) {
-                    venue.photos[indexPath.row].image = image
-                    completion(.success(venue))
+                    let indexedImage = IndexedImage(indexPath: indexPath, image: image)
+                    venue.photos[indexPath.row].imageState = .downloaded(indexedImage)
+                    completion(.success(indexedImage))
                 } else {
                     completion(.failure(.invalidData))
                 }
