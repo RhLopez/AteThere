@@ -36,7 +36,6 @@ class SearchDetailController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
         venuePhotoCollectionView.dataSource = collectionViewDataSource
         if let venue = searchVenue, let client = client {
             activityIndicator.startAnimating()
@@ -48,7 +47,7 @@ class SearchDetailController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.interactivePopGestureRecognizer?.delegate = self
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     func configure(withViewModel viewModel: SearchVenueViewModel) {
