@@ -12,16 +12,26 @@ import CoreLocation
 enum LocationError: Error {
     case deniedByUser
     case restrictedAccess
+    case unknownError
+    case networkUnavailable
+    case locationUnknown
+    case unableToProcessRequest
+    case unableToFindLocation
 }
 
 protocol LocationPermissionDelegate: class {
-    func authorizationSucceeded()
     func authorizationFailedWithStatus(_ error: LocationError)
+}
+
+protocol LocationManagerDelegate: class {
+    func obtainedCoordinates(_ coordinate: CLLocationCoordinate2D)
+    func failedWithError(_ error: LocationError)
 }
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     private let manager = CLLocationManager()
-    weak var delegate: LocationPermissionDelegate?
+    weak var locationPermissionDelegate: LocationPermissionDelegate?
+    weak var delegate: LocationManagerDelegate?
     
     override init() {
         super.init()
@@ -47,16 +57,47 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
+    func requestLocation() {
+        manager.requestLocation()
+    }
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .denied:
-            delegate?.authorizationFailedWithStatus(.deniedByUser)
+            locationPermissionDelegate?.authorizationFailedWithStatus(.deniedByUser)
         case .restricted:
-            delegate?.authorizationFailedWithStatus(.restrictedAccess)
-        case .authorizedWhenInUse, .authorizedAlways:
-            delegate?.authorizationSucceeded()
+            locationPermissionDelegate?.authorizationFailedWithStatus(.restrictedAccess)
         default:
             return
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        guard let error = error as? CLError else {
+            delegate?.failedWithError(.unknownError)
+            return
+        }
+        
+        switch error.code {
+        case .denied:
+            delegate?.failedWithError(.deniedByUser)
+        case .network:
+            delegate?.failedWithError(.networkUnavailable)
+        case .locationUnknown:
+            delegate?.failedWithError(.locationUnknown)
+        default:
+            delegate?.failedWithError(.unableToProcessRequest)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else {
+            delegate?.failedWithError(.unableToFindLocation)
+            return
+        }
+        
+        let coordinate: CLLocationCoordinate2D = location.coordinate
+        
+        delegate?.obtainedCoordinates(coordinate)
     }
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 class FoursquareAPIClient: APIClient {
     var apiKey: APIKey
@@ -22,8 +23,10 @@ class FoursquareAPIClient: APIClient {
         self.init(sessionConfiguration: .default, apiKey: apiKey)
     }
     
-    func search(withTerm term: String, completion: @escaping (Result<[SearchVenue], APIError>) -> Void) {
-        let endpoint = Foursquare.search(term: term, key: apiKey)
+    func search(withTerm term: String, withCoordinate coordinate: CLLocationCoordinate2D, completion: @escaping (Result<[SearchVenue], APIError>) -> Void) {
+        let coordinateString = "\(coordinate.latitude),\(coordinate.longitude)"
+        
+        let endpoint = Foursquare.search(term: term, coordinate: coordinateString, key: apiKey)
         
         let task = jsonTask(with: endpoint.request) { (json, error) in
             
@@ -143,7 +146,7 @@ class FoursquareAPIClient: APIClient {
 }
 
 enum Foursquare {
-    case search(term: String, key: APIKey)
+    case search(term: String, coordinate: String, key: APIKey)
     case lookUp(id: String, key: APIKey)
     case photos(id: String, key: APIKey)
 }
@@ -163,11 +166,11 @@ extension Foursquare: Endpoint {
     
     var queryItems: [URLQueryItem] {
         switch self {
-        case .search(let term, let key):
+        case .search(let term, let coordinate, let key):
             return [
                 URLQueryItem(name: Constants.client, value: key.clientID),
                 URLQueryItem(name: Constants.secret, value: key.clientSecret),
-                URLQueryItem(name: Constants.location, value: "33.881682,-118.117012"),// Remove hardcoded location
+                URLQueryItem(name: Constants.location, value: coordinate),
                 URLQueryItem(name: Constants.category, value: Constants.foodCategory),
                 URLQueryItem(name: Constants.query, value: term),
                 URLQueryItem(name: Constants.versionParameter, value: Constants.versionDate),

@@ -24,14 +24,16 @@ class SearchController: UITableViewController {
     private var lastSearchTerm: String?
     weak var delegate: SearchControllerDelegate?
     let userDefaults = UserDefaults()
+    var coordinates: CLLocationCoordinate2D?
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchController()
         tableView.dataSource = dataSource
-        checkLocationAuthorization()
+        locationManager?.locationPermissionDelegate = self
         locationManager?.delegate = self
+        checkLocationAuthorization()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,10 +49,8 @@ class SearchController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if userDefaults.bool(forKey: "LocationAuthorized") {
-            DispatchQueue.main.async {
-                self.searchController.searchBar.becomeFirstResponder()
-            }
+        DispatchQueue.main.async {
+            self.searchController.searchBar.becomeFirstResponder()
         }
     }
     
@@ -81,6 +81,8 @@ class SearchController: UITableViewController {
 
         let textfield = self.searchController.searchBar.value(forKey: "searchField") as! UITextField
         textfield.tintColor = .black
+        
+        locationManager?.requestLocation()
     }
     
     func showLocationDeniedMessage() {
@@ -117,22 +119,27 @@ class SearchController: UITableViewController {
 }
 
 // MARK: - LocationPermissionDelegate
-extension SearchController: LocationPermissionDelegate {
-    func authorizationSucceeded() {
-        DispatchQueue.main.async {
-            self.searchController.searchBar.becomeFirstResponder()
-        }
-        
-        userDefaults.set(true, forKey: "LocationAuthorized")
-    }
-    
+extension SearchController: LocationPermissionDelegate {    
     func authorizationFailedWithStatus(_ error: LocationError) {
         switch error {
         case .deniedByUser:
             showLocationDeniedMessage()
         case .restrictedAccess:
             showRestrictedLocationAccessMessage()
+        default:
+            return
         }
+    }
+}
+
+// MARK: - LocationManagerDelegate
+extension SearchController: LocationManagerDelegate {
+    func obtainedCoordinates(_ coordinate: CLLocationCoordinate2D) {
+        coordinates = coordinate
+    }
+    
+    func failedWithError(_ error: LocationError) {
+        // TODO: Implement show general message
     }
 }
 
@@ -147,20 +154,21 @@ extension SearchController: UISearchBarDelegate {
 extension SearchController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchTerm = searchController.searchBar.text!
-        
-        if !searchTerm.isEmpty {
-            client?.search(withTerm: searchTerm) { (result) in
-                switch result {
-                case .success(let venues):
-                    self.dataSource.update(withVenues: venues)
-                    self.tableView.reloadData()
-                case .failure(let error):
-                    print("error: \(error)")
+        if let coordinate = coordinates {
+            if !searchTerm.isEmpty {
+                client?.search(withTerm: searchTerm, withCoordinate: coordinate) { (result) in
+                    switch result {
+                    case .success(let venues):
+                        self.dataSource.update(withVenues: venues)
+                        self.tableView.reloadData()
+                    case .failure(let error):
+                        print("error: \(error)")
+                    }
                 }
+            } else {
+                self.dataSource.update(withVenues: [])
+                self.tableView.reloadData()
             }
-        } else {
-            self.dataSource.update(withVenues: [])
-            self.tableView.reloadData()
         }
     }
 }
