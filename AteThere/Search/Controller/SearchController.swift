@@ -17,22 +17,21 @@ protocol SearchControllerDelegate: class {
 class SearchController: UITableViewController {
     
     // MARK: - Properties
-    let searchController = UISearchController(searchResultsController: nil)
-    let dataSource = SearchControllerDataSource()
+    private let searchController = UISearchController(searchResultsController: nil)
+    weak var delegate: SearchControllerDelegate?
+    private var lastSearchTerm: String?
+    private var coordinates: CLLocationCoordinate2D?
     var client: FoursquareAPIClient?
     var locationManager: LocationManager?
-    private var lastSearchTerm: String?
-    weak var delegate: SearchControllerDelegate?
-    let userDefaults = UserDefaults()
-    var coordinates: CLLocationCoordinate2D?
+    
+    lazy var dataSource: SearchControllerDataSource = {
+        return SearchControllerDataSource(venues: [])
+    }()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearchController()
-        tableView.dataSource = dataSource
-        locationManager?.locationPermissionDelegate = self
-        locationManager?.delegate = self
         checkLocationAuthorization()
     }
     
@@ -73,6 +72,8 @@ class SearchController: UITableViewController {
     }
     
     func setupSearchController() {
+        tableView.dataSource = dataSource
+        
         navigationItem.titleView = searchController.searchBar
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
@@ -81,6 +82,9 @@ class SearchController: UITableViewController {
 
         let textfield = self.searchController.searchBar.value(forKey: "searchField") as! UITextField
         textfield.tintColor = .black
+        
+        locationManager?.locationPermissionDelegate = self
+        locationManager?.delegate = self
         
         locationManager?.requestLocation()
     }
@@ -140,6 +144,7 @@ extension SearchController: LocationManagerDelegate {
     
     func failedWithError(_ error: LocationError) {
         // TODO: Implement show general message
+        print(error)
     }
 }
 
